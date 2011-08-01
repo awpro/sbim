@@ -1,0 +1,11 @@
+E:\Projects\sbim\sbim\sbim\bin\Debug\sbim.exe
+E:\Projects\sbim\sbim\sbim\bin\Debug\sbim.pdb
+E:\Projects\sbim\sbim\sbim\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Projects\sbim\sbim\sbim\obj\x86\Debug\sbim.main.resources
+E:\Projects\sbim\sbim\sbim\obj\x86\Debug\sbim.Properties.Resources.resources
+E:\Projects\sbim\sbim\sbim\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\Projects\sbim\sbim\sbim\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\Projects\sbim\sbim\sbim\obj\x86\Debug\sbim.exe
+E:\Projects\sbim\sbim\sbim\obj\x86\Debug\sbim.pdb
+E:\Projects\sbim\sbim\sbim\obj\x86\Debug\sbim.Splash.resources
+E:\Projects\sbim\sbim\sbim\obj\x86\Debug\sbim.UserLogin.resources
