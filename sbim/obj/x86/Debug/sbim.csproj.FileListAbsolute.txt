@@ -21,3 +21,4 @@ D:\sbim\sbim\obj\x86\Debug\sbim.UserLogin.resources
 D:\sbim\sbim\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\sbim\sbim\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\sbim\sbim\obj\x86\Debug\sbim.Book.resources
+D:\sbim\sbim\bin\Debug\sbim.exe.config

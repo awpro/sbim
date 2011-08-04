@@ -15,5 +15,14 @@ namespace sbim
         {
             InitializeComponent();
         }
+
+        private void Book_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void getPublisher(){
+
+        }
     }
 }

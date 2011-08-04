@@ -311,6 +311,7 @@
             this.MaximizeBox = false;
             this.Name = "Book";
             this.Text = "Book Information";
+            this.Load += new System.EventHandler(this.Book_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
