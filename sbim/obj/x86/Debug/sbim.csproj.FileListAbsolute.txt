@@ -9,3 +9,15 @@ E:\Projects\sbim\sbim\sbim\obj\x86\Debug\sbim.exe
 E:\Projects\sbim\sbim\sbim\obj\x86\Debug\sbim.pdb
 E:\Projects\sbim\sbim\sbim\obj\x86\Debug\sbim.Splash.resources
 E:\Projects\sbim\sbim\sbim\obj\x86\Debug\sbim.UserLogin.resources
+D:\sbim\sbim\obj\x86\Debug\sbim.exe
+D:\sbim\sbim\obj\x86\Debug\sbim.pdb
+D:\sbim\sbim\bin\Debug\sbim.exe
+D:\sbim\sbim\bin\Debug\sbim.pdb
+D:\sbim\sbim\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\sbim\sbim\obj\x86\Debug\sbim.main.resources
+D:\sbim\sbim\obj\x86\Debug\sbim.Properties.Resources.resources
+D:\sbim\sbim\obj\x86\Debug\sbim.Splash.resources
+D:\sbim\sbim\obj\x86\Debug\sbim.UserLogin.resources
+D:\sbim\sbim\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\sbim\sbim\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\sbim\sbim\obj\x86\Debug\sbim.Book.resources

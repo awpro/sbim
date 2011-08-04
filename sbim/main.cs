@@ -67,16 +67,6 @@ namespace sbim
         {
         }
 
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
-
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.Cascade);
@@ -113,6 +103,19 @@ namespace sbim
         private void main_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void createDonationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bookInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frmBook = new Book();
+            frmBook.MdiParent = this;
+            frmBook.Text = "Book Information";
+            frmBook.Show();
         }
     }
 }
