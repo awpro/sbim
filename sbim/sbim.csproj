@@ -104,6 +104,12 @@
     <Compile Include="Admin module\CustomerType.Designer.cs">
       <DependentUpon>CustomerType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin module\Discount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin module\Discount.Designer.cs">
+      <DependentUpon>Discount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin module\OriginalPublisher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin module\CustomerType.resx">
       <DependentUpon>CustomerType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin module\Discount.resx">
+      <DependentUpon>Discount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin module\OriginalPublisher.resx">
       <DependentUpon>OriginalPublisher.cs</DependentUpon>

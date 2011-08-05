@@ -21,6 +21,7 @@ D:\sbim\sbim\obj\x86\Debug\sbim.UserLogin.resources
 D:\sbim\sbim\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\sbim\sbim\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\sbim\sbim\obj\x86\Debug\sbim.Book.resources
+<<<<<<< HEAD
 E:\projects\sbim\sbim\obj\x86\Debug\sbim.exe
 E:\projects\sbim\sbim\obj\x86\Debug\sbim.pdb
 E:\projects\sbim\sbim\bin\Debug\sbim.exe
@@ -43,3 +44,7 @@ E:\projects\sbim\sbim\obj\x86\Debug\sbim.Admin_module.frmCity.resources
 E:\projects\sbim\sbim\obj\x86\Debug\sbim.Admin_module.frmCurrency.resources
 E:\projects\sbim\sbim\obj\x86\Debug\sbim.Admin_module.frmUser.resources
 E:\projects\sbim\sbim\obj\x86\Debug\sbim.Admin_module.frmUserLevel.resources
+=======
+D:\sbim\sbim\bin\Debug\sbim.exe.config
+>>>>>>> 63786f82035f66bda0792c2f1526a80fc7406c35
+E:\projects\sbim\sbim\obj\x86\Debug\sbim.Admin_module.frmDiscount.resources
