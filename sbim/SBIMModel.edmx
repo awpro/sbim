@@ -48,10 +48,6 @@
           <EntitySet Name="inventory_user_profile" EntityType="SBIMModel.Store.inventory_user_profile" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="inventory_users" EntityType="SBIMModel.Store.inventory_users" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="SBIMModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_inventory_book_authors_individual" Association="SBIMModel.Store.FK_inventory_book_authors_individual">
-            <End Role="inventory_individual" EntitySet="inventory_individual" />
-            <End Role="inventory_book_authors" EntitySet="inventory_book_authors" />
-          </AssociationSet>
           <AssociationSet Name="FK_inventory_book_authors_inventory_book" Association="SBIMModel.Store.FK_inventory_book_authors_inventory_book">
             <End Role="inventory_book" EntitySet="inventory_book" />
             <End Role="inventory_book_authors" EntitySet="inventory_book_authors" />
@@ -68,10 +64,6 @@
             <End Role="inventory_sale" EntitySet="inventory_sale" />
             <End Role="inventory_book_distributor_return" EntitySet="inventory_book_distributor_return" />
           </AssociationSet>
-          <AssociationSet Name="FK_inventory_book_illustrators_individual" Association="SBIMModel.Store.FK_inventory_book_illustrators_individual">
-            <End Role="inventory_individual" EntitySet="inventory_individual" />
-            <End Role="inventory_book_illustrators" EntitySet="inventory_book_illustrators" />
-          </AssociationSet>
           <AssociationSet Name="FK_inventory_book_illustrators_inventory_book" Association="SBIMModel.Store.FK_inventory_book_illustrators_inventory_book">
             <End Role="inventory_book" EntitySet="inventory_book" />
             <End Role="inventory_book_illustrators" EntitySet="inventory_book_illustrators" />
@@ -79,10 +71,6 @@
           <AssociationSet Name="FK_inventory_book_original_publisher" Association="SBIMModel.Store.FK_inventory_book_original_publisher">
             <End Role="inventory_original_publisher" EntitySet="inventory_original_publisher" />
             <End Role="inventory_book" EntitySet="inventory_book" />
-          </AssociationSet>
-          <AssociationSet Name="FK_inventory_book_photographers_individual" Association="SBIMModel.Store.FK_inventory_book_photographers_individual">
-            <End Role="inventory_individual" EntitySet="inventory_individual" />
-            <End Role="inventory_book_photographers" EntitySet="inventory_book_photographers" />
           </AssociationSet>
           <AssociationSet Name="FK_inventory_book_photographers_inventory_book" Association="SBIMModel.Store.FK_inventory_book_photographers_inventory_book">
             <End Role="inventory_book" EntitySet="inventory_book" />
@@ -139,6 +127,10 @@
           <AssociationSet Name="FK_inventory_customer_type" Association="SBIMModel.Store.FK_inventory_customer_type">
             <End Role="inventory_customer_type" EntitySet="inventory_customer_type" />
             <End Role="inventory_customer" EntitySet="inventory_customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_discount_customer_type_inventory_customer_type" Association="SBIMModel.Store.FK_inventory_discount_customer_type_inventory_customer_type">
+            <End Role="inventory_customer_type" EntitySet="inventory_customer_type" />
+            <End Role="inventory_discount_customer_type" EntitySet="inventory_discount_customer_type" />
           </AssociationSet>
           <AssociationSet Name="FK_inventory_discount_customer_type_inventory_discount" Association="SBIMModel.Store.FK_inventory_discount_customer_type_inventory_discount">
             <End Role="inventory_discount" EntitySet="inventory_discount" />
@@ -527,18 +519,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_inventory_book_authors_individual">
-          <End Role="inventory_individual" Type="SBIMModel.Store.inventory_individual" Multiplicity="1" />
-          <End Role="inventory_book_authors" Type="SBIMModel.Store.inventory_book_authors" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_individual">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book_authors">
-              <PropertyRef Name="individual_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_inventory_book_authors_inventory_book">
           <End Role="inventory_book" Type="SBIMModel.Store.inventory_book" Multiplicity="1" />
           <End Role="inventory_book_authors" Type="SBIMModel.Store.inventory_book_authors" Multiplicity="*" />
@@ -587,18 +567,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_inventory_book_illustrators_individual">
-          <End Role="inventory_individual" Type="SBIMModel.Store.inventory_individual" Multiplicity="1" />
-          <End Role="inventory_book_illustrators" Type="SBIMModel.Store.inventory_book_illustrators" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_individual">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book_illustrators">
-              <PropertyRef Name="individual_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_inventory_book_illustrators_inventory_book">
           <End Role="inventory_book" Type="SBIMModel.Store.inventory_book" Multiplicity="1" />
           <End Role="inventory_book_illustrators" Type="SBIMModel.Store.inventory_book_illustrators" Multiplicity="*" />
@@ -620,18 +588,6 @@
             </Principal>
             <Dependent Role="inventory_book">
               <PropertyRef Name="original_publisher_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_inventory_book_photographers_individual">
-          <End Role="inventory_individual" Type="SBIMModel.Store.inventory_individual" Multiplicity="1" />
-          <End Role="inventory_book_photographers" Type="SBIMModel.Store.inventory_book_photographers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_individual">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book_photographers">
-              <PropertyRef Name="individual_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -803,6 +759,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_inventory_discount_customer_type_inventory_customer_type">
+          <End Role="inventory_customer_type" Type="SBIMModel.Store.inventory_customer_type" Multiplicity="0..1" />
+          <End Role="inventory_discount_customer_type" Type="SBIMModel.Store.inventory_discount_customer_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_discount_customer_type">
+              <PropertyRef Name="customer_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_inventory_discount_customer_type_inventory_discount">
           <End Role="inventory_discount" Type="SBIMModel.Store.inventory_discount" Multiplicity="0..1" />
           <End Role="inventory_discount_customer_type" Type="SBIMModel.Store.inventory_discount_customer_type" Multiplicity="*" />
@@ -961,10 +929,6 @@
             <End Role="inventory_book" EntitySet="inventory_book" />
             <End Role="inventory_stock_adjustment" EntitySet="inventory_stock_adjustment" />
           </AssociationSet>
-          <AssociationSet Name="FK_inventory_book_authors_individual" Association="SBIMModel.FK_inventory_book_authors_individual">
-            <End Role="inventory_individual" EntitySet="inventory_individual" />
-            <End Role="inventory_book_authors" EntitySet="inventory_book_authors" />
-          </AssociationSet>
           <AssociationSet Name="FK_inventory_book_deposit_return_inventory_sale" Association="SBIMModel.FK_inventory_book_deposit_return_inventory_sale">
             <End Role="inventory_sale" EntitySet="inventory_sale" />
             <End Role="inventory_book_deposit_return" EntitySet="inventory_book_deposit_return" />
@@ -972,14 +936,6 @@
           <AssociationSet Name="FK_inventory_book_distributor_return_inventory_sale" Association="SBIMModel.FK_inventory_book_distributor_return_inventory_sale">
             <End Role="inventory_sale" EntitySet="inventory_sale" />
             <End Role="inventory_book_distributor_return" EntitySet="inventory_book_distributor_return" />
-          </AssociationSet>
-          <AssociationSet Name="FK_inventory_book_illustrators_individual" Association="SBIMModel.FK_inventory_book_illustrators_individual">
-            <End Role="inventory_individual" EntitySet="inventory_individual" />
-            <End Role="inventory_book_illustrators" EntitySet="inventory_book_illustrators" />
-          </AssociationSet>
-          <AssociationSet Name="FK_inventory_book_photographers_individual" Association="SBIMModel.FK_inventory_book_photographers_individual">
-            <End Role="inventory_individual" EntitySet="inventory_individual" />
-            <End Role="inventory_book_photographers" EntitySet="inventory_book_photographers" />
           </AssociationSet>
           <AssociationSet Name="FK_inventory_book_return_customer" Association="SBIMModel.FK_inventory_book_return_customer">
             <End Role="inventory_customer" EntitySet="inventory_customer" />
@@ -1033,6 +989,10 @@
             <End Role="inventory_customer_tags" EntitySet="inventory_customer_tags" />
             <End Role="inventory_customer_tag" EntitySet="inventory_customer_tag" />
           </AssociationSet>
+          <AssociationSet Name="FK_inventory_discount_customer_type_inventory_customer_type" Association="SBIMModel.FK_inventory_discount_customer_type_inventory_customer_type">
+            <End Role="inventory_customer_type" EntitySet="inventory_customer_type" />
+            <End Role="inventory_discount_customer_type" EntitySet="inventory_discount_customer_type" />
+          </AssociationSet>
           <AssociationSet Name="FK_inventory_discount_customer_type_inventory_discount" Association="SBIMModel.FK_inventory_discount_customer_type_inventory_discount">
             <End Role="inventory_discount" EntitySet="inventory_discount" />
             <End Role="inventory_discount_customer_type" EntitySet="inventory_discount_customer_type" />
@@ -1067,9 +1027,7 @@
           <Property Name="reference" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="title" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
           <Property Name="title_kh" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="collection_id" Type="Int32" />
           <Property Name="public_price" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="original_publisher_id" Type="Int32" />
           <Property Name="printing_cost" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="inventory_book_authors" Relationship="SBIMModel.FK_inventory_book_authors_inventory_book" FromRole="inventory_book" ToRole="inventory_book_authors" />
           <NavigationProperty Name="inventory_collection" Relationship="SBIMModel.FK_inventory_book_collection" FromRole="inventory_book" ToRole="inventory_collection" />
@@ -1084,10 +1042,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="book_id" Type="Int32" Nullable="false" />
           <Property Name="individual_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="inventory_book" Relationship="SBIMModel.FK_inventory_book_authors_inventory_book" FromRole="inventory_book_authors" ToRole="inventory_book" />
-          <NavigationProperty Name="inventory_individual" Relationship="SBIMModel.FK_inventory_book_authors_individual" FromRole="inventory_book_authors" ToRole="inventory_individual" />
         </EntityType>
         <EntityType Name="inventory_book_deposit_return">
           <Key>
@@ -1096,7 +1052,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="book_id" Type="Int32" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
-          <Property Name="sale_id" Type="Int32" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="inventory_sale" Relationship="SBIMModel.FK_inventory_book_deposit_return_inventory_sale" FromRole="inventory_book_deposit_return" ToRole="inventory_sale" />
         </EntityType>
@@ -1107,7 +1062,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="book_id" Type="Int32" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
-          <Property Name="sale_id" Type="Int32" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="inventory_sale" Relationship="SBIMModel.FK_inventory_book_distributor_return_inventory_sale" FromRole="inventory_book_distributor_return" ToRole="inventory_sale" />
         </EntityType>
@@ -1116,10 +1070,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="book_id" Type="Int32" Nullable="false" />
           <Property Name="individual_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="inventory_book" Relationship="SBIMModel.FK_inventory_book_illustrators_inventory_book" FromRole="inventory_book_illustrators" ToRole="inventory_book" />
-          <NavigationProperty Name="inventory_individual" Relationship="SBIMModel.FK_inventory_book_illustrators_individual" FromRole="inventory_book_illustrators" ToRole="inventory_individual" />
         </EntityType>
         <EntityType Name="inventory_book_photographers">
           <Key>
@@ -1129,14 +1081,12 @@
           <Property Name="book_id" Type="Int32" Nullable="false" />
           <Property Name="individual_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="inventory_book" Relationship="SBIMModel.FK_inventory_book_photographers_inventory_book" FromRole="inventory_book_photographers" ToRole="inventory_book" />
-          <NavigationProperty Name="inventory_individual" Relationship="SBIMModel.FK_inventory_book_photographers_individual" FromRole="inventory_book_photographers" ToRole="inventory_individual" />
         </EntityType>
         <EntityType Name="inventory_book_return">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="customer_id" Type="Int32" Nullable="false" />
           <Property Name="book_id" Type="Int32" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
           <Property Name="comments" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
@@ -1158,7 +1108,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
           <Property Name="name_kh" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="collection_type_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="inventory_book" Relationship="SBIMModel.FK_inventory_book_collection" FromRole="inventory_collection" ToRole="inventory_book" />
           <NavigationProperty Name="inventory_collection_target_readers" Relationship="SBIMModel.FK_inventory_collection_target_readers" FromRole="inventory_collection" ToRole="inventory_collection_target_readers" />
           <NavigationProperty Name="inventory_collection_type" Relationship="SBIMModel.FK_inventory_collection_type" FromRole="inventory_collection" ToRole="inventory_collection_type" />
@@ -1168,8 +1117,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="collection_id" Type="Int32" Nullable="false" />
-          <Property Name="target_readers_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="inventory_collection" Relationship="SBIMModel.FK_inventory_collection_target_readers" FromRole="inventory_collection_target_readers" ToRole="inventory_collection" />
           <NavigationProperty Name="inventory_target_readers" Relationship="SBIMModel.FK_inventory_collection_target_readers_detail" FromRole="inventory_collection_target_readers" ToRole="inventory_target_readers" />
         </EntityType>
@@ -1186,7 +1133,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="creation_date" Type="DateTime" />
-          <Property Name="customer_id" Type="Int32" />
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="note" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_contact_inventory_customer" FromRole="inventory_contact" ToRole="inventory_customer" />
@@ -1200,7 +1146,6 @@
           <Property Name="account_creation" Type="DateTime" />
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="type_id" Type="Int32" />
           <Property Name="address" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
           <Property Name="telephone" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="fax" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
@@ -1223,8 +1168,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="customer_id" Type="Int32" Nullable="false" />
-          <Property Name="activity_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="inventory_activity" Relationship="SBIMModel.FK_inventory_customer_activity_detail" FromRole="inventory_customer_activity" ToRole="inventory_activity" />
           <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_customer_activity" FromRole="inventory_customer_activity" ToRole="inventory_customer" />
         </EntityType>
@@ -1232,8 +1175,6 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="city_id" Type="Int32" />
-          <Property Name="customer_id" Type="Int32" />
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="inventory_city" Relationship="SBIMModel.FK_inventory_customer_city" FromRole="inventory_customer_city" ToRole="inventory_city" />
           <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_customer_city_inventory_customer" FromRole="inventory_customer_city" ToRole="inventory_customer" />
@@ -1242,7 +1183,6 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="customer_id" Type="Int32" />
           <Property Name="email" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
           <Property Name="fax" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="gender" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
@@ -1256,8 +1196,6 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="customer_id" Type="Int32" />
-          <Property Name="customer_tags_id" Type="Int32" />
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_customer_tag_inventory_customer" FromRole="inventory_customer_tag" ToRole="inventory_customer" />
           <NavigationProperty Name="inventory_customer_tags" Relationship="SBIMModel.FK_inventory_customer_tag_inventory_customer_tags" FromRole="inventory_customer_tag" ToRole="inventory_customer_tags" />
@@ -1278,6 +1216,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_customer_type" FromRole="inventory_customer_type" ToRole="inventory_customer" />
+          <NavigationProperty Name="inventory_discount_customer_type" Relationship="SBIMModel.FK_inventory_discount_customer_type_inventory_customer_type" FromRole="inventory_customer_type" ToRole="inventory_discount_customer_type" />
         </EntityType>
         <EntityType Name="inventory_discount">
           <Key>
@@ -1293,9 +1232,8 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="customer_type_id" Type="Int32" />
-          <Property Name="discount_id" Type="Int32" />
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="inventory_customer_type" Relationship="SBIMModel.FK_inventory_discount_customer_type_inventory_customer_type" FromRole="inventory_discount_customer_type" ToRole="inventory_customer_type" />
           <NavigationProperty Name="inventory_discount" Relationship="SBIMModel.FK_inventory_discount_customer_type_inventory_discount" FromRole="inventory_discount_customer_type" ToRole="inventory_discount" />
         </EntityType>
         <EntityType Name="inventory_dollarrielrate">
@@ -1310,7 +1248,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="book_id" Type="Int32" Nullable="false" />
           <Property Name="edition_number" Type="Int32" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
           <Property Name="print_date" Type="DateTime" Nullable="false" />
@@ -1348,9 +1285,6 @@
           <Property Name="is_translator" Type="Boolean" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
           <Property Name="sex" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="inventory_book_authors" Relationship="SBIMModel.FK_inventory_book_authors_individual" FromRole="inventory_individual" ToRole="inventory_book_authors" />
-          <NavigationProperty Name="inventory_book_illustrators" Relationship="SBIMModel.FK_inventory_book_illustrators_individual" FromRole="inventory_individual" ToRole="inventory_book_illustrators" />
-          <NavigationProperty Name="inventory_book_photographers" Relationship="SBIMModel.FK_inventory_book_photographers_individual" FromRole="inventory_individual" ToRole="inventory_book_photographers" />
         </EntityType>
         <EntityType Name="inventory_original_publisher">
           <Key>
@@ -1376,7 +1310,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="customer_id" Type="Int32" Nullable="false" />
           <Property Name="date_open" Type="DateTime" Nullable="false" />
           <Property Name="date_concluded" Type="DateTime" Nullable="false" />
           <Property Name="type" Type="Int32" Nullable="false" />
@@ -1393,7 +1326,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="book_id" Type="Int32" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
           <Property Name="notes" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="date" Type="DateTime" Nullable="false" />
@@ -1415,7 +1347,6 @@
           <Property Name="book_id" Type="Int32" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
           <Property Name="unit_price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="sale_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="inventory_sale" Relationship="SBIMModel.FK_inventory_unitary_sale_" FromRole="inventory_unitary_sale" ToRole="inventory_sale" />
         </EntityType>
         <EntityType Name="inventory_user_level">
@@ -1468,62 +1399,22 @@
         <Association Name="FK_inventory_customer_activity_detail">
           <End Role="inventory_activity" Type="SBIMModel.inventory_activity" Multiplicity="1" />
           <End Role="inventory_customer_activity" Type="SBIMModel.inventory_customer_activity" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_activity">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_customer_activity">
-              <PropertyRef Name="activity_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_book_authors_inventory_book">
           <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="1" />
           <End Role="inventory_book_authors" Type="SBIMModel.inventory_book_authors" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_book">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book_authors">
-              <PropertyRef Name="book_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_book_collection">
           <End Role="inventory_collection" Type="SBIMModel.inventory_collection" Multiplicity="0..1" />
           <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_collection">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book">
-              <PropertyRef Name="collection_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_book_illustrators_inventory_book">
           <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="1" />
           <End Role="inventory_book_illustrators" Type="SBIMModel.inventory_book_illustrators" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_book">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book_illustrators">
-              <PropertyRef Name="book_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_book_original_publisher">
           <End Role="inventory_original_publisher" Type="SBIMModel.inventory_original_publisher" Multiplicity="0..1" />
           <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_original_publisher">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book">
-              <PropertyRef Name="original_publisher_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_book_photographers_inventory_book">
           <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="1" />
@@ -1540,254 +1431,78 @@
         <Association Name="FK_inventory_edition_inventory_book">
           <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="1" />
           <End Role="inventory_edition" Type="SBIMModel.inventory_edition" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_book">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_edition">
-              <PropertyRef Name="book_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_stock_adjustment_inventory_book">
           <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="1" />
           <End Role="inventory_stock_adjustment" Type="SBIMModel.inventory_stock_adjustment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_book">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_stock_adjustment">
-              <PropertyRef Name="book_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_inventory_book_authors_individual">
-          <End Role="inventory_individual" Type="SBIMModel.inventory_individual" Multiplicity="1" />
-          <End Role="inventory_book_authors" Type="SBIMModel.inventory_book_authors" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_individual">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book_authors">
-              <PropertyRef Name="individual_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_book_deposit_return_inventory_sale">
           <End Role="inventory_sale" Type="SBIMModel.inventory_sale" Multiplicity="1" />
           <End Role="inventory_book_deposit_return" Type="SBIMModel.inventory_book_deposit_return" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_sale">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book_deposit_return">
-              <PropertyRef Name="sale_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_book_distributor_return_inventory_sale">
           <End Role="inventory_sale" Type="SBIMModel.inventory_sale" Multiplicity="1" />
           <End Role="inventory_book_distributor_return" Type="SBIMModel.inventory_book_distributor_return" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_sale">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book_distributor_return">
-              <PropertyRef Name="sale_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_inventory_book_illustrators_individual">
-          <End Role="inventory_individual" Type="SBIMModel.inventory_individual" Multiplicity="1" />
-          <End Role="inventory_book_illustrators" Type="SBIMModel.inventory_book_illustrators" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_individual">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book_illustrators">
-              <PropertyRef Name="individual_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_inventory_book_photographers_individual">
-          <End Role="inventory_individual" Type="SBIMModel.inventory_individual" Multiplicity="1" />
-          <End Role="inventory_book_photographers" Type="SBIMModel.inventory_book_photographers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_individual">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book_photographers">
-              <PropertyRef Name="individual_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_book_return_customer">
           <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="1" />
           <End Role="inventory_book_return" Type="SBIMModel.inventory_book_return" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_customer">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_book_return">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_customer_city">
           <End Role="inventory_city" Type="SBIMModel.inventory_city" Multiplicity="0..1" />
           <End Role="inventory_customer_city" Type="SBIMModel.inventory_customer_city" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_city">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_customer_city">
-              <PropertyRef Name="city_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_collection_target_readers">
           <End Role="inventory_collection" Type="SBIMModel.inventory_collection" Multiplicity="1" />
           <End Role="inventory_collection_target_readers" Type="SBIMModel.inventory_collection_target_readers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_collection">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_collection_target_readers">
-              <PropertyRef Name="collection_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_collection_type">
           <End Role="inventory_collection_type" Type="SBIMModel.inventory_collection_type" Multiplicity="1" />
           <End Role="inventory_collection" Type="SBIMModel.inventory_collection" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_collection_type">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_collection">
-              <PropertyRef Name="collection_type_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_collection_target_readers_detail">
           <End Role="inventory_target_readers" Type="SBIMModel.inventory_target_readers" Multiplicity="1" />
           <End Role="inventory_collection_target_readers" Type="SBIMModel.inventory_collection_target_readers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_target_readers">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_collection_target_readers">
-              <PropertyRef Name="target_readers_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_contact_inventory_customer">
           <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="0..1" />
           <End Role="inventory_contact" Type="SBIMModel.inventory_contact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_customer">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_contact">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_customer_activity">
           <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="1" />
           <End Role="inventory_customer_activity" Type="SBIMModel.inventory_customer_activity" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_customer">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_customer_activity">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_customer_city_inventory_customer">
           <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="0..1" />
           <End Role="inventory_customer_city" Type="SBIMModel.inventory_customer_city" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_customer">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_customer_city">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_customer_contact">
           <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="0..1" />
           <End Role="inventory_customer_contact" Type="SBIMModel.inventory_customer_contact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_customer">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_customer_contact">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_customer_tag_inventory_customer">
           <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="0..1" />
           <End Role="inventory_customer_tag" Type="SBIMModel.inventory_customer_tag" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_customer">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_customer_tag">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_customer_type">
           <End Role="inventory_customer_type" Type="SBIMModel.inventory_customer_type" Multiplicity="0..1" />
           <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_customer_type">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_customer">
-              <PropertyRef Name="type_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_sale_customer">
           <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="1" />
           <End Role="inventory_sale" Type="SBIMModel.inventory_sale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_customer">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_sale">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_customer_tag_inventory_customer_tags">
           <End Role="inventory_customer_tags" Type="SBIMModel.inventory_customer_tags" Multiplicity="0..1" />
           <End Role="inventory_customer_tag" Type="SBIMModel.inventory_customer_tag" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_customer_tags">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_customer_tag">
-              <PropertyRef Name="customer_tags_id" />
-            </Dependent>
-          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_discount_customer_type_inventory_customer_type">
+          <End Role="inventory_customer_type" Type="SBIMModel.inventory_customer_type" Multiplicity="0..1" />
+          <End Role="inventory_discount_customer_type" Type="SBIMModel.inventory_discount_customer_type" Multiplicity="*" />
         </Association>
         <Association Name="FK_inventory_discount_customer_type_inventory_discount">
           <End Role="inventory_discount" Type="SBIMModel.inventory_discount" Multiplicity="0..1" />
           <End Role="inventory_discount_customer_type" Type="SBIMModel.inventory_discount_customer_type" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_discount">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_discount_customer_type">
-              <PropertyRef Name="discount_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_permission_user_level">
           <End Role="inventory_user_level" Type="SBIMModel.inventory_user_level" Multiplicity="1" />
@@ -1804,14 +1519,6 @@
         <Association Name="FK_inventory_unitary_sale_">
           <End Role="inventory_sale" Type="SBIMModel.inventory_sale" Multiplicity="1" />
           <End Role="inventory_unitary_sale" Type="SBIMModel.inventory_unitary_sale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inventory_sale">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="inventory_unitary_sale">
-              <PropertyRef Name="sale_id" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK_inventory_user_profile">
           <End Role="inventory_users" Type="SBIMModel.inventory_users" Multiplicity="1" />
@@ -1841,33 +1548,27 @@
             <ScalarProperty Name="reference" ColumnName="reference" />
             <ScalarProperty Name="title" ColumnName="title" />
             <ScalarProperty Name="title_kh" ColumnName="title_kh" />
-            <ScalarProperty Name="collection_id" ColumnName="collection_id" />
             <ScalarProperty Name="public_price" ColumnName="public_price" />
-            <ScalarProperty Name="original_publisher_id" ColumnName="original_publisher_id" />
             <ScalarProperty Name="printing_cost" ColumnName="printing_cost" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_book_authors"><EntityTypeMapping TypeName="SBIMModel.inventory_book_authors"><MappingFragment StoreEntitySet="inventory_book_authors">
             <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="book_id" ColumnName="book_id" />
             <ScalarProperty Name="individual_id" ColumnName="individual_id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_book_deposit_return"><EntityTypeMapping TypeName="SBIMModel.inventory_book_deposit_return"><MappingFragment StoreEntitySet="inventory_book_deposit_return">
             <ScalarProperty Name="id" ColumnName="id" />
             <ScalarProperty Name="book_id" ColumnName="book_id" />
             <ScalarProperty Name="quantity" ColumnName="quantity" />
-            <ScalarProperty Name="sale_id" ColumnName="sale_id" />
             <ScalarProperty Name="date" ColumnName="date" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_book_distributor_return"><EntityTypeMapping TypeName="SBIMModel.inventory_book_distributor_return"><MappingFragment StoreEntitySet="inventory_book_distributor_return">
             <ScalarProperty Name="id" ColumnName="id" />
             <ScalarProperty Name="book_id" ColumnName="book_id" />
             <ScalarProperty Name="quantity" ColumnName="quantity" />
-            <ScalarProperty Name="sale_id" ColumnName="sale_id" />
             <ScalarProperty Name="date" ColumnName="date" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_book_illustrators"><EntityTypeMapping TypeName="SBIMModel.inventory_book_illustrators"><MappingFragment StoreEntitySet="inventory_book_illustrators">
             <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="book_id" ColumnName="book_id" />
             <ScalarProperty Name="individual_id" ColumnName="individual_id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_book_photographers"><EntityTypeMapping TypeName="SBIMModel.inventory_book_photographers"><MappingFragment StoreEntitySet="inventory_book_photographers">
@@ -1877,7 +1578,6 @@
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_book_return"><EntityTypeMapping TypeName="SBIMModel.inventory_book_return"><MappingFragment StoreEntitySet="inventory_book_return">
             <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
             <ScalarProperty Name="book_id" ColumnName="book_id" />
             <ScalarProperty Name="quantity" ColumnName="quantity" />
             <ScalarProperty Name="comments" ColumnName="comments" />
@@ -1891,12 +1591,9 @@
             <ScalarProperty Name="id" ColumnName="id" />
             <ScalarProperty Name="name" ColumnName="name" />
             <ScalarProperty Name="name_kh" ColumnName="name_kh" />
-            <ScalarProperty Name="collection_type_id" ColumnName="collection_type_id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_collection_target_readers"><EntityTypeMapping TypeName="SBIMModel.inventory_collection_target_readers"><MappingFragment StoreEntitySet="inventory_collection_target_readers">
             <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="collection_id" ColumnName="collection_id" />
-            <ScalarProperty Name="target_readers_id" ColumnName="target_readers_id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_collection_type"><EntityTypeMapping TypeName="SBIMModel.inventory_collection_type"><MappingFragment StoreEntitySet="inventory_collection_type">
             <ScalarProperty Name="id" ColumnName="id" />
@@ -1904,7 +1601,6 @@
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_contact"><EntityTypeMapping TypeName="SBIMModel.inventory_contact"><MappingFragment StoreEntitySet="inventory_contact">
             <ScalarProperty Name="creation_date" ColumnName="creation_date" />
-            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
             <ScalarProperty Name="id" ColumnName="id" />
             <ScalarProperty Name="note" ColumnName="note" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
@@ -1914,7 +1610,6 @@
             <ScalarProperty Name="account_creation" ColumnName="account_creation" />
             <ScalarProperty Name="id" ColumnName="id" />
             <ScalarProperty Name="name" ColumnName="name" />
-            <ScalarProperty Name="type_id" ColumnName="type_id" />
             <ScalarProperty Name="address" ColumnName="address" />
             <ScalarProperty Name="telephone" ColumnName="telephone" />
             <ScalarProperty Name="fax" ColumnName="fax" />
@@ -1926,16 +1621,11 @@
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_customer_activity"><EntityTypeMapping TypeName="SBIMModel.inventory_customer_activity"><MappingFragment StoreEntitySet="inventory_customer_activity">
             <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-            <ScalarProperty Name="activity_id" ColumnName="activity_id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_customer_city"><EntityTypeMapping TypeName="SBIMModel.inventory_customer_city"><MappingFragment StoreEntitySet="inventory_customer_city">
-            <ScalarProperty Name="city_id" ColumnName="city_id" />
-            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
             <ScalarProperty Name="id" ColumnName="id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_customer_contact"><EntityTypeMapping TypeName="SBIMModel.inventory_customer_contact"><MappingFragment StoreEntitySet="inventory_customer_contact">
-            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
             <ScalarProperty Name="email" ColumnName="email" />
             <ScalarProperty Name="fax" ColumnName="fax" />
             <ScalarProperty Name="gender" ColumnName="gender" />
@@ -1945,8 +1635,6 @@
             <ScalarProperty Name="telephone" ColumnName="telephone" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_customer_tag"><EntityTypeMapping TypeName="SBIMModel.inventory_customer_tag"><MappingFragment StoreEntitySet="inventory_customer_tag">
-            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-            <ScalarProperty Name="customer_tags_id" ColumnName="customer_tags_id" />
             <ScalarProperty Name="id" ColumnName="id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_customer_tags"><EntityTypeMapping TypeName="SBIMModel.inventory_customer_tags"><MappingFragment StoreEntitySet="inventory_customer_tags">
@@ -1965,8 +1653,6 @@
             <ScalarProperty Name="sale_type" ColumnName="sale_type" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_discount_customer_type"><EntityTypeMapping TypeName="SBIMModel.inventory_discount_customer_type"><MappingFragment StoreEntitySet="inventory_discount_customer_type">
-            <ScalarProperty Name="customer_type_id" ColumnName="customer_type_id" />
-            <ScalarProperty Name="discount_id" ColumnName="discount_id" />
             <ScalarProperty Name="id" ColumnName="id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_dollarrielrate"><EntityTypeMapping TypeName="SBIMModel.inventory_dollarrielrate"><MappingFragment StoreEntitySet="inventory_dollarrielrate">
@@ -1975,7 +1661,6 @@
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_edition"><EntityTypeMapping TypeName="SBIMModel.inventory_edition"><MappingFragment StoreEntitySet="inventory_edition">
             <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="book_id" ColumnName="book_id" />
             <ScalarProperty Name="edition_number" ColumnName="edition_number" />
             <ScalarProperty Name="quantity" ColumnName="quantity" />
             <ScalarProperty Name="print_date" ColumnName="print_date" />
@@ -2018,7 +1703,6 @@
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_sale"><EntityTypeMapping TypeName="SBIMModel.inventory_sale"><MappingFragment StoreEntitySet="inventory_sale">
             <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
             <ScalarProperty Name="date_open" ColumnName="date_open" />
             <ScalarProperty Name="date_concluded" ColumnName="date_concluded" />
             <ScalarProperty Name="type" ColumnName="type" />
@@ -2028,7 +1712,6 @@
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_stock_adjustment"><EntityTypeMapping TypeName="SBIMModel.inventory_stock_adjustment"><MappingFragment StoreEntitySet="inventory_stock_adjustment">
             <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="book_id" ColumnName="book_id" />
             <ScalarProperty Name="quantity" ColumnName="quantity" />
             <ScalarProperty Name="notes" ColumnName="notes" />
             <ScalarProperty Name="date" ColumnName="date" />
@@ -2042,7 +1725,6 @@
             <ScalarProperty Name="book_id" ColumnName="book_id" />
             <ScalarProperty Name="quantity" ColumnName="quantity" />
             <ScalarProperty Name="unit_price" ColumnName="unit_price" />
-            <ScalarProperty Name="sale_id" ColumnName="sale_id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="inventory_user_level"><EntityTypeMapping TypeName="SBIMModel.inventory_user_level"><MappingFragment StoreEntitySet="inventory_user_level">
             <ScalarProperty Name="level_id" ColumnName="level_id" />
@@ -2076,6 +1758,217 @@
             <ScalarProperty Name="version" ColumnName="version" />
             <ScalarProperty Name="definition" ColumnName="definition" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_inventory_customer_activity_detail" TypeName="SBIMModel.FK_inventory_customer_activity_detail" StoreEntitySet="inventory_customer_activity">
+            <EndProperty Name="inventory_activity">
+              <ScalarProperty Name="id" ColumnName="activity_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_customer_activity">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_book_authors_inventory_book" TypeName="SBIMModel.FK_inventory_book_authors_inventory_book" StoreEntitySet="inventory_book_authors">
+            <EndProperty Name="inventory_book">
+              <ScalarProperty Name="id" ColumnName="book_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_book_authors">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_book_collection" TypeName="SBIMModel.FK_inventory_book_collection" StoreEntitySet="inventory_book">
+            <EndProperty Name="inventory_collection">
+              <ScalarProperty Name="id" ColumnName="collection_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_book">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <Condition ColumnName="collection_id" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_book_illustrators_inventory_book" TypeName="SBIMModel.FK_inventory_book_illustrators_inventory_book" StoreEntitySet="inventory_book_illustrators">
+            <EndProperty Name="inventory_book">
+              <ScalarProperty Name="id" ColumnName="book_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_book_illustrators">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_book_original_publisher" TypeName="SBIMModel.FK_inventory_book_original_publisher" StoreEntitySet="inventory_book">
+            <EndProperty Name="inventory_original_publisher">
+              <ScalarProperty Name="id" ColumnName="original_publisher_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_book">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <Condition ColumnName="original_publisher_id" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_edition_inventory_book" TypeName="SBIMModel.FK_inventory_edition_inventory_book" StoreEntitySet="inventory_edition">
+            <EndProperty Name="inventory_book">
+              <ScalarProperty Name="id" ColumnName="book_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_edition">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_stock_adjustment_inventory_book" TypeName="SBIMModel.FK_inventory_stock_adjustment_inventory_book" StoreEntitySet="inventory_stock_adjustment">
+            <EndProperty Name="inventory_book">
+              <ScalarProperty Name="id" ColumnName="book_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_stock_adjustment">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_book_deposit_return_inventory_sale" TypeName="SBIMModel.FK_inventory_book_deposit_return_inventory_sale" StoreEntitySet="inventory_book_deposit_return">
+            <EndProperty Name="inventory_sale">
+              <ScalarProperty Name="id" ColumnName="sale_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_book_deposit_return">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_book_distributor_return_inventory_sale" TypeName="SBIMModel.FK_inventory_book_distributor_return_inventory_sale" StoreEntitySet="inventory_book_distributor_return">
+            <EndProperty Name="inventory_sale">
+              <ScalarProperty Name="id" ColumnName="sale_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_book_distributor_return">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_book_return_customer" TypeName="SBIMModel.FK_inventory_book_return_customer" StoreEntitySet="inventory_book_return">
+            <EndProperty Name="inventory_customer">
+              <ScalarProperty Name="id" ColumnName="customer_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_book_return">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_customer_city" TypeName="SBIMModel.FK_inventory_customer_city" StoreEntitySet="inventory_customer_city">
+            <EndProperty Name="inventory_city">
+              <ScalarProperty Name="id" ColumnName="city_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_customer_city">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <Condition ColumnName="city_id" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_collection_target_readers" TypeName="SBIMModel.FK_inventory_collection_target_readers" StoreEntitySet="inventory_collection_target_readers">
+            <EndProperty Name="inventory_collection">
+              <ScalarProperty Name="id" ColumnName="collection_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_collection_target_readers">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_collection_type" TypeName="SBIMModel.FK_inventory_collection_type" StoreEntitySet="inventory_collection">
+            <EndProperty Name="inventory_collection_type">
+              <ScalarProperty Name="id" ColumnName="collection_type_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_collection">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_collection_target_readers_detail" TypeName="SBIMModel.FK_inventory_collection_target_readers_detail" StoreEntitySet="inventory_collection_target_readers">
+            <EndProperty Name="inventory_target_readers">
+              <ScalarProperty Name="id" ColumnName="target_readers_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_collection_target_readers">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_contact_inventory_customer" TypeName="SBIMModel.FK_inventory_contact_inventory_customer" StoreEntitySet="inventory_contact">
+            <EndProperty Name="inventory_customer">
+              <ScalarProperty Name="id" ColumnName="customer_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_contact">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <Condition ColumnName="customer_id" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_customer_activity" TypeName="SBIMModel.FK_inventory_customer_activity" StoreEntitySet="inventory_customer_activity">
+            <EndProperty Name="inventory_customer">
+              <ScalarProperty Name="id" ColumnName="customer_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_customer_activity">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_customer_city_inventory_customer" TypeName="SBIMModel.FK_inventory_customer_city_inventory_customer" StoreEntitySet="inventory_customer_city">
+            <EndProperty Name="inventory_customer">
+              <ScalarProperty Name="id" ColumnName="customer_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_customer_city">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <Condition ColumnName="customer_id" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_customer_contact" TypeName="SBIMModel.FK_inventory_customer_contact" StoreEntitySet="inventory_customer_contact">
+            <EndProperty Name="inventory_customer">
+              <ScalarProperty Name="id" ColumnName="customer_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_customer_contact">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <Condition ColumnName="customer_id" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_customer_tag_inventory_customer" TypeName="SBIMModel.FK_inventory_customer_tag_inventory_customer" StoreEntitySet="inventory_customer_tag">
+            <EndProperty Name="inventory_customer">
+              <ScalarProperty Name="id" ColumnName="customer_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_customer_tag">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <Condition ColumnName="customer_id" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_customer_type" TypeName="SBIMModel.FK_inventory_customer_type" StoreEntitySet="inventory_customer">
+            <EndProperty Name="inventory_customer_type">
+              <ScalarProperty Name="id" ColumnName="type_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_customer">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <Condition ColumnName="type_id" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_sale_customer" TypeName="SBIMModel.FK_inventory_sale_customer" StoreEntitySet="inventory_sale">
+            <EndProperty Name="inventory_customer">
+              <ScalarProperty Name="id" ColumnName="customer_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_sale">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_customer_tag_inventory_customer_tags" TypeName="SBIMModel.FK_inventory_customer_tag_inventory_customer_tags" StoreEntitySet="inventory_customer_tag">
+            <EndProperty Name="inventory_customer_tags">
+              <ScalarProperty Name="id" ColumnName="customer_tags_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_customer_tag">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <Condition ColumnName="customer_tags_id" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_discount_customer_type_inventory_customer_type" TypeName="SBIMModel.FK_inventory_discount_customer_type_inventory_customer_type" StoreEntitySet="inventory_discount_customer_type">
+            <EndProperty Name="inventory_customer_type">
+              <ScalarProperty Name="id" ColumnName="customer_type_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_discount_customer_type">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <Condition ColumnName="customer_type_id" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_discount_customer_type_inventory_discount" TypeName="SBIMModel.FK_inventory_discount_customer_type_inventory_discount" StoreEntitySet="inventory_discount_customer_type">
+            <EndProperty Name="inventory_discount">
+              <ScalarProperty Name="id" ColumnName="discount_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_discount_customer_type">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <Condition ColumnName="discount_id" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_inventory_unitary_sale_" TypeName="SBIMModel.FK_inventory_unitary_sale_" StoreEntitySet="inventory_unitary_sale">
+            <EndProperty Name="inventory_sale">
+              <ScalarProperty Name="id" ColumnName="sale_id" />
+            </EndProperty>
+            <EndProperty Name="inventory_unitary_sale">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2091,217 +1984,201 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="SBIMModel">
-        <EntityTypeShape EntityType="SBIMModel.inventory_activity" Width="1.5" PointX="3" PointY="9.875" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_book" Width="1.5" PointX="15.25" PointY="8.5" Height="4.0956022135416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_book_authors" Width="1.5" PointX="17.5" PointY="6.5" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_book_deposit_return" Width="1.5" PointX="7.5" PointY="24.5" Height="2.172587890624996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_book_distributor_return" Width="1.5" PointX="7.5" PointY="27.5" Height="2.172587890624996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_book_illustrators" Width="1.5" PointX="17.5" PointY="12.5" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_book_photographers" Width="1.5" PointX="20.5" PointY="9.5" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_book_return" Width="1.5" PointX="5.25" PointY="7" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_city" Width="1.5" PointX="6" PointY="21.875" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_collection" Width="1.5" PointX="13" PointY="9.375" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_collection_target_readers" Width="1.5" PointX="18.25" PointY="9.5" Height="1.9802864583333353" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_collection_type" Width="1.5" PointX="10.75" PointY="9.75" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_contact" Width="1.5" PointX="5.25" PointY="10.125" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_customer" Width="1.5" PointX="3" PointY="13.125" Height="5.2494108072916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_customer_activity" Width="1.5" PointX="5.25" PointY="14.75" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_customer_city" Width="1.5" PointX="8.25" PointY="14.75" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_customer_contact" Width="1.5" PointX="5.25" PointY="18.25" Height="2.7494921875000031" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_customer_tag" Width="1.5" PointX="8.25" PointY="11.75" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_customer_tags" Width="1.5" PointX="6" PointY="3.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_customer_type" Width="1.5" PointX="0.75" PointY="14.875" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_discount" Width="1.5" PointX="10.75" PointY="16.75" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_discount_customer_type" Width="1.5" PointX="13" PointY="16.875" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_activity" Width="1.5" PointX="3" PointY="19.875" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book" Width="1.5" PointX="15.25" PointY="7.75" Height="3.7109993489583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_authors" Width="1.5" PointX="17.5" PointY="3.5" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_deposit_return" Width="1.5" PointX="7.5" PointY="23.375" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_distributor_return" Width="1.5" PointX="7.5" PointY="26.125" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_illustrators" Width="1.5" PointX="17.5" PointY="5.875" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_photographers" Width="1.5" PointX="17.5" PointY="11.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_return" Width="1.5" PointX="5.25" PointY="7.5" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_city" Width="1.5" PointX="6" PointY="1.875" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_collection" Width="1.5" PointX="13" PointY="8.5" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_collection_target_readers" Width="1.5" PointX="18.25" PointY="8.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_collection_type" Width="1.5" PointX="10.75" PointY="8.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_contact" Width="1.5" PointX="5.25" PointY="10.5" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer" Width="1.5" PointX="3" PointY="13.125" Height="5.0571093749999942" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_activity" Width="1.5" PointX="5.25" PointY="14.875" Height="1.5956835937499942" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_city" Width="1.5" PointX="8.25" PointY="14.875" Height="1.5956835937499942" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_contact" Width="1.5" PointX="5.25" PointY="17.75" Height="2.5571907552083388" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_tag" Width="1.5" PointX="8.25" PointY="11.875" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_tags" Width="1.5" PointX="6" PointY="4.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_type" Width="1.5" PointX="0.75" PointY="14.75" Height="1.7879850260416657" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_discount" Width="1.5" PointX="0.75" PointY="9.625" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_discount_customer_type" Width="1.5" PointX="3" PointY="9.875" Height="1.5956835937500067" IsExpanded="true" />
         <EntityTypeShape EntityType="SBIMModel.inventory_dollarrielrate" Width="1.5" PointX="0.75" PointY="1.5" Height="1.4033821614583246" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_edition" Width="1.5" PointX="17.5" PointY="16.125" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_edition" Width="1.5" PointX="17.5" PointY="13.75" Height="2.172587890624996" IsExpanded="true" />
         <EntityTypeShape EntityType="SBIMModel.inventory_filtersave" Width="1.5" PointX="2.75" PointY="1.5" Height="3.1340950520833246" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_individual" Width="1.5" PointX="15.25" PointY="3.75" Height="3.7109993489583246" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_original_publisher" Width="1.5" PointX="13" PointY="6.75" Height="1.595683593749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_permission" Width="1.5" PointX="13" PointY="13.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_sale" Width="1.5" PointX="5.25" PointY="26.875" Height="3.326396484374996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_stock_adjustment" Width="1.5" PointX="17.5" PointY="19.25" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_individual" Width="1.5" PointX="0.75" PointY="5.5" Height="3.1340950520833246" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_original_publisher" Width="1.5" PointX="13" PointY="5.75" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_permission" Width="1.5" PointX="13" PointY="12.625" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_sale" Width="1.5" PointX="5.25" PointY="25.5" Height="3.1340950520833246" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_stock_adjustment" Width="1.5" PointX="17.5" PointY="16.625" Height="1.9802864583333246" IsExpanded="true" />
         <EntityTypeShape EntityType="SBIMModel.inventory_target_readers" Width="1.5" PointX="16" PointY="0.75" Height="1.595683593749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_unitary_sale" Width="1.5" PointX="7.5" PointY="30.375" Height="2.172587890624996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.inventory_user_level" Width="1.5" PointX="10.75" PointY="13.875" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_unitary_sale" Width="1.5" PointX="7.5" PointY="28.875" Height="1.9802864583333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_user_level" Width="1.5" PointX="10.75" PointY="12.75" Height="1.595683593749996" IsExpanded="true" />
         <EntityTypeShape EntityType="SBIMModel.inventory_user_profile" Width="1.5" PointX="11" PointY="1.875" Height="2.749492187499996" IsExpanded="true" />
         <EntityTypeShape EntityType="SBIMModel.inventory_users" Width="1.5" PointX="8.75" PointY="1.75" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBIMModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="5.5" Height="1.9802864583333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="7.5" Height="1.9802864583333246" IsExpanded="true" />
         <AssociationConnector Association="SBIMModel.FK_inventory_customer_activity_detail" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="11.47068359375" />
-          <ConnectorPoint PointX="4.875" PointY="11.84568359375" />
-          <ConnectorPoint PointX="4.875" PointY="15.740143229166669" />
-          <ConnectorPoint PointX="5.25" PointY="15.740143229166669" />
+          <ConnectorPoint PointX="4.5" PointY="19.876152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="19.501152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="15.672841796874998" />
+          <ConnectorPoint PointX="5.25" PointY="15.672841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_book_authors_inventory_book" ManuallyRouted="false">
-          <ConnectorPoint PointX="16.75" PointY="8.5" />
-          <ConnectorPoint PointX="17.125" PointY="8.125" />
-          <ConnectorPoint PointX="17.125" PointY="8.8552864583333317" />
-          <ConnectorPoint PointX="17.253574434901122" PointY="8.72671202343221" />
-          <ConnectorPoint PointX="17.371425565098878" PointY="8.6088608932344535" />
-          <ConnectorPoint PointX="17.5" PointY="8.4802864583333317" />
+          <ConnectorPoint PointX="16" PointY="7.75" />
+          <ConnectorPoint PointX="16" PointY="4.297841796875" />
+          <ConnectorPoint PointX="17.5" PointY="4.297841796875" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_book_collection" ManuallyRouted="false">
-          <ConnectorPoint PointX="14.5" PointY="10.557444661458334" />
-          <ConnectorPoint PointX="15.25" PointY="10.557444661458334" />
+          <ConnectorPoint PointX="14.5" PointY="9.5862939453125" />
+          <ConnectorPoint PointX="15.25" PointY="9.5862939453125" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_book_illustrators_inventory_book" ManuallyRouted="false">
-          <ConnectorPoint PointX="16.75" PointY="12.021392729166667" />
-          <ConnectorPoint PointX="17.229166666666668" PointY="12.021392729166667" />
-          <ConnectorPoint PointX="17.395833333333332" PointY="12.021392729166667" />
-          <ConnectorPoint PointX="17.84375" PointY="12.021392729166667" />
-          <ConnectorPoint PointX="17.84375" PointY="12.5" />
+          <ConnectorPoint PointX="16.4062525" PointY="7.75" />
+          <ConnectorPoint PointX="16.4062525" PointY="6.672841796875" />
+          <ConnectorPoint PointX="17.5" PointY="6.672841796875" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_book_original_publisher" ManuallyRouted="false">
-          <ConnectorPoint PointX="14.5" PointY="8.345683593749996" />
-          <ConnectorPoint PointX="14.875" PointY="8.720683593749996" />
-          <ConnectorPoint PointX="14.875" PointY="8.125" />
-          <ConnectorPoint PointX="15.25" PointY="8.5" />
+          <ConnectorPoint PointX="14.5" PointY="6.2114208984375" />
+          <ConnectorPoint PointX="15.5937475" PointY="6.2114208984375" />
+          <ConnectorPoint PointX="15.5937475" PointY="7.75" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_book_photographers_inventory_book" ManuallyRouted="false">
-          <ConnectorPoint PointX="16.75" PointY="11.71958759375" />
-          <ConnectorPoint PointX="17.229166666666668" PointY="11.71958759375" />
-          <ConnectorPoint PointX="17.395833333333332" PointY="11.71958759375" />
-          <ConnectorPoint PointX="21.25" PointY="11.71958759375" />
-          <ConnectorPoint PointX="21.25" PointY="11.480286458333332" />
+          <ConnectorPoint PointX="16.75" PointY="11.292999674479166" />
+          <ConnectorPoint PointX="17.5" PointY="11.292999674479166" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_edition_inventory_book" ManuallyRouted="false">
-          <ConnectorPoint PointX="16" PointY="12.595602213541667" />
-          <ConnectorPoint PointX="16" PointY="17.307444661458334" />
-          <ConnectorPoint PointX="16.322919166666669" PointY="17.307444661458334" />
-          <ConnectorPoint PointX="16.489585833333333" PointY="17.307444661458334" />
-          <ConnectorPoint PointX="17.5" PointY="17.307444661458334" />
+          <ConnectorPoint PointX="16" PointY="11.460999348958332" />
+          <ConnectorPoint PointX="16" PointY="14.836293945312498" />
+          <ConnectorPoint PointX="16.322919166666669" PointY="14.836293945312498" />
+          <ConnectorPoint PointX="16.489585833333333" PointY="14.836293945312498" />
+          <ConnectorPoint PointX="17.5" PointY="14.836293945312498" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_stock_adjustment_inventory_book" ManuallyRouted="false">
-          <ConnectorPoint PointX="16.4062525" PointY="12.595602213541667" />
-          <ConnectorPoint PointX="16.4062525" PointY="20.336293945312498" />
-          <ConnectorPoint PointX="17.5" PointY="20.336293945312498" />
-        </AssociationConnector>
-        <AssociationConnector Association="SBIMModel.FK_inventory_book_authors_individual" ManuallyRouted="false">
-          <ConnectorPoint PointX="16.75" PointY="6.9804996744791623" />
-          <ConnectorPoint PointX="17.5" PointY="6.9804996744791623" />
+          <ConnectorPoint PointX="16.4062525" PointY="11.460999348958332" />
+          <ConnectorPoint PointX="16.4062525" PointY="17.615143229166662" />
+          <ConnectorPoint PointX="17.5" PointY="17.615143229166662" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_book_deposit_return_inventory_sale" ManuallyRouted="false">
-          <ConnectorPoint PointX="6" PointY="26.875" />
-          <ConnectorPoint PointX="6" PointY="25.586293945312498" />
-          <ConnectorPoint PointX="7.5" PointY="25.586293945312498" />
+          <ConnectorPoint PointX="6" PointY="25.5" />
+          <ConnectorPoint PointX="6" PointY="24.365143229166666" />
+          <ConnectorPoint PointX="7.5" PointY="24.365143229166666" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_book_distributor_return_inventory_sale" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="28.586293945312498" />
-          <ConnectorPoint PointX="7.5" PointY="28.586293945312498" />
-        </AssociationConnector>
-        <AssociationConnector Association="SBIMModel.FK_inventory_book_illustrators_individual" ManuallyRouted="false">
-          <ConnectorPoint PointX="16.75" PointY="7.3975368104967858" />
-          <ConnectorPoint PointX="17.3125" PointY="7.9600368104967849" />
-          <ConnectorPoint PointX="17.3125" PointY="13.490143229166666" />
-          <ConnectorPoint PointX="17.5" PointY="13.490143229166666" />
-        </AssociationConnector>
-        <AssociationConnector Association="SBIMModel.FK_inventory_book_photographers_individual" ManuallyRouted="false">
-          <ConnectorPoint PointX="16.75" PointY="5.09375" />
-          <ConnectorPoint PointX="19.322916666666668" PointY="5.0937499999999991" />
-          <ConnectorPoint PointX="19.489583333333332" PointY="5.09375" />
-          <ConnectorPoint PointX="21.25" PointY="5.09375" />
-          <ConnectorPoint PointX="21.25" PointY="9.5" />
+          <ConnectorPoint PointX="6.75" PointY="27.115143229166666" />
+          <ConnectorPoint PointX="7.5" PointY="27.115143229166666" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_book_return_customer" ManuallyRouted="false">
           <ConnectorPoint PointX="4.47576923076923" PointY="13.125" />
-          <ConnectorPoint PointX="4.8160744349011209" PointY="12.784694795868109" />
-          <ConnectorPoint PointX="4.9339255650988791" PointY="12.666843665670353" />
-          <ConnectorPoint PointX="5.0625" PointY="12.538269230769231" />
-          <ConnectorPoint PointX="5.0625" PointY="8.1824446614583337" />
-          <ConnectorPoint PointX="5.25" PointY="8.1824446614583337" />
+          <ConnectorPoint PointX="4.875" PointY="12.725769230769231" />
+          <ConnectorPoint PointX="4.875" PointY="8.5862939453125" />
+          <ConnectorPoint PointX="5.25" PointY="8.5862939453125" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_customer_city" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="22.672841796875" />
-          <ConnectorPoint PointX="9" PointY="22.672841796875" />
-          <ConnectorPoint PointX="9" PointY="16.730286458333339" />
+          <ConnectorPoint PointX="6.75" PointY="3.4706835937499996" />
+          <ConnectorPoint PointX="6.75" PointY="4.5" />
+          <ConnectorPoint PointX="7.75" PointY="4.5" />
+          <ConnectorPoint PointX="7.75" PointY="7.25" />
+          <ConnectorPoint PointX="7.5" PointY="7.25" />
+          <ConnectorPoint PointX="7.5" PointY="15.672841796874998" />
+          <ConnectorPoint PointX="8.25" PointY="15.672841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_collection_target_readers" ManuallyRouted="false">
-          <ConnectorPoint PointX="13.75" PointY="9.375" />
-          <ConnectorPoint PointX="13.75" PointY="9.125" />
-          <ConnectorPoint PointX="15" PointY="9.125" />
-          <ConnectorPoint PointX="15" PointY="8.25" />
-          <ConnectorPoint PointX="17" PointY="8.25" />
-          <ConnectorPoint PointX="17" PointY="10.490143229166668" />
-          <ConnectorPoint PointX="17.229166666666668" PointY="10.490143229166668" />
-          <ConnectorPoint PointX="17.395833333333332" PointY="10.490143229166668" />
-          <ConnectorPoint PointX="18.25" PointY="10.490143229166668" />
+          <ConnectorPoint PointX="13.75" PointY="8.5" />
+          <ConnectorPoint PointX="13.75" PointY="7.5" />
+          <ConnectorPoint PointX="15.510414166666665" PointY="7.4999999999999991" />
+          <ConnectorPoint PointX="15.677080833333333" PointY="7.5" />
+          <ConnectorPoint PointX="15.916666666666666" PointY="7.4999999999999991" />
+          <ConnectorPoint PointX="16.083333333333332" PointY="7.5" />
+          <ConnectorPoint PointX="16.322919166666669" PointY="7.4999999999999991" />
+          <ConnectorPoint PointX="16.489585833333333" PointY="7.5" />
+          <ConnectorPoint PointX="17.25" PointY="7.5" />
+          <ConnectorPoint PointX="17.25" PointY="9.547841796875" />
+          <ConnectorPoint PointX="18.25" PointY="9.547841796875" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_collection_type" ManuallyRouted="false">
-          <ConnectorPoint PointX="12.25" PointY="10.547841796875002" />
-          <ConnectorPoint PointX="13" PointY="10.547841796875002" />
+          <ConnectorPoint PointX="12.25" PointY="9.5478417968750016" />
+          <ConnectorPoint PointX="13" PointY="9.5478417968750016" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_collection_target_readers_detail" ManuallyRouted="false">
           <ConnectorPoint PointX="17.5" PointY="1.547841796874998" />
           <ConnectorPoint PointX="19.40625" PointY="1.547841796874998" />
-          <ConnectorPoint PointX="19.40625" PointY="9.5" />
+          <ConnectorPoint PointX="19.40625" PointY="8.75" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_contact_inventory_customer" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="13.182691307692309" />
-          <ConnectorPoint PointX="4.8160744349011209" PointY="12.866616872791187" />
-          <ConnectorPoint PointX="4.9339255650988791" PointY="12.748765742593431" />
-          <ConnectorPoint PointX="4.96875" PointY="12.713941307692309" />
-          <ConnectorPoint PointX="4.96875" PointY="11.115143229166669" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="11.115143229166669" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="11.115143229166669" />
-          <ConnectorPoint PointX="5.25" PointY="11.115143229166669" />
+          <ConnectorPoint PointX="5.03125" PointY="12.651441307692309" />
+          <ConnectorPoint PointX="5.03125" PointY="11.393992513020834" />
+          <ConnectorPoint PointX="5.25" PointY="11.393992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_customer_activity" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="15.182571614583335" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="15.182571614583335" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="15.182571614583335" />
-          <ConnectorPoint PointX="5.25" PointY="15.182571614583335" />
+          <ConnectorPoint PointX="4.5" PointY="15.211420898437499" />
+          <ConnectorPoint PointX="5.25" PointY="15.211420898437499" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_customer_city_inventory_customer" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="17.49014572916667" />
-          <ConnectorPoint PointX="8.5937475" PointY="17.49014572916667" />
-          <ConnectorPoint PointX="8.5937475" PointY="16.730286458333339" />
+          <ConnectorPoint PointX="4.5" PointY="17.079092296874997" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="17.079092296874997" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="17.079092296874997" />
+          <ConnectorPoint PointX="9" PointY="17.079092296874997" />
+          <ConnectorPoint PointX="9" PointY="16.470683593749996" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_customer_contact" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.75" PointY="18.374410807291667" />
-          <ConnectorPoint PointX="3.75" PointY="19.686951997395838" />
-          <ConnectorPoint PointX="4.0729191666666669" PointY="19.686951997395838" />
-          <ConnectorPoint PointX="4.2395858333333329" PointY="19.686951997395838" />
-          <ConnectorPoint PointX="5.25" PointY="19.686951997395838" />
+          <ConnectorPoint PointX="4.5" PointY="17.966054687499998" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="17.966054687499998" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="17.966054687499998" />
+          <ConnectorPoint PointX="5.25" PointY="17.966054687499998" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_customer_tag_inventory_customer" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="13.487741383012818" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="13.487741383012818" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="13.487741383012818" />
-          <ConnectorPoint PointX="8.25" PointY="13.487741383012818" />
+          <ConnectorPoint PointX="4.5" PointY="13.357939950721146" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="13.357939950721146" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="13.357939950721146" />
+          <ConnectorPoint PointX="8.25" PointY="13.357939950721146" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_customer_type" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="15.672841796875002" />
-          <ConnectorPoint PointX="3" PointY="15.672841796875002" />
+          <ConnectorPoint PointX="2.25" PointY="15.643992513020834" />
+          <ConnectorPoint PointX="3" PointY="15.643992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_sale_customer" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.1562525" PointY="18.374410807291667" />
-          <ConnectorPoint PointX="4.1562525" PointY="28.538198242187498" />
-          <ConnectorPoint PointX="5.25" PointY="28.538198242187498" />
+          <ConnectorPoint PointX="4.5" PointY="18.119800682692304" />
+          <ConnectorPoint PointX="4.8160744349011217" PointY="18.435875117593426" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="18.553726247791182" />
+          <ConnectorPoint PointX="5.0625" PointY="18.682300682692304" />
+          <ConnectorPoint PointX="5.0625" PointY="27.067047526041662" />
+          <ConnectorPoint PointX="5.25" PointY="27.067047526041662" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_customer_tag_inventory_customer_tags" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.15625" PointY="5.5379850260416674" />
-          <ConnectorPoint PointX="7.15625" PointY="12.796511420673078" />
-          <ConnectorPoint PointX="8.25" PointY="12.796511420673078" />
+          <ConnectorPoint PointX="7.15625" PointY="6.5379850260416674" />
+          <ConnectorPoint PointX="7.15625" PointY="12.822959988381406" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="12.822959988381406" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="12.822959988381406" />
+          <ConnectorPoint PointX="8.25" PointY="12.822959988381406" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_discount_customer_type_inventory_customer_type" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="14.751152846153847" />
+          <ConnectorPoint PointX="2.625" PointY="14.376152846153847" />
+          <ConnectorPoint PointX="2.625" PointY="10.672841796875003" />
+          <ConnectorPoint PointX="3" PointY="10.672841796875003" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_discount_customer_type_inventory_discount" ManuallyRouted="false">
-          <ConnectorPoint PointX="12.25" PointY="17.768992513020834" />
-          <ConnectorPoint PointX="13" PointY="17.768992513020834" />
+          <ConnectorPoint PointX="2.25" PointY="10.211420898437503" />
+          <ConnectorPoint PointX="3" PointY="10.211420898437503" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_permission_user_level" ManuallyRouted="false">
-          <ConnectorPoint PointX="12.25" PointY="14.672841796874998" />
-          <ConnectorPoint PointX="13" PointY="14.672841796874998" />
+          <ConnectorPoint PointX="12.25" PointY="13.547841796874998" />
+          <ConnectorPoint PointX="13" PointY="13.547841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_unitary_sale_" ManuallyRouted="false">
-          <ConnectorPoint PointX="6" PointY="30.201396484374996" />
-          <ConnectorPoint PointX="6" PointY="31.461293945312498" />
-          <ConnectorPoint PointX="7.5" PointY="31.461293945312498" />
+          <ConnectorPoint PointX="6" PointY="28.634095052083325" />
+          <ConnectorPoint PointX="6" PointY="29.865143229166662" />
+          <ConnectorPoint PointX="7.5" PointY="29.865143229166662" />
         </AssociationConnector>
         <AssociationConnector Association="SBIMModel.FK_inventory_user_profile" ManuallyRouted="false">
           <ConnectorPoint PointX="10.25" PointY="3.249746093749998" />

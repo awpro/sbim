@@ -18,35 +18,33 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_activity_detail", "inventory_activity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_activity), "inventory_customer_activity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_activity), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_authors_inventory_book", "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_book), "inventory_book_authors", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_authors), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_collection", "inventory_collection", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_collection), "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_illustrators_inventory_book", "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_book), "inventory_book_illustrators", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_illustrators), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_original_publisher", "inventory_original_publisher", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_original_publisher), "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book), true)]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_activity_detail", "inventory_activity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_activity), "inventory_customer_activity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_activity))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_authors_inventory_book", "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_book), "inventory_book_authors", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_authors))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_collection", "inventory_collection", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_collection), "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_illustrators_inventory_book", "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_book), "inventory_book_illustrators", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_illustrators))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_original_publisher", "inventory_original_publisher", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_original_publisher), "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book))]
 [assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_photographers_inventory_book", "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_book), "inventory_book_photographers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_book_photographers), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_edition_inventory_book", "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_book), "inventory_edition", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_edition), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_stock_adjustment_inventory_book", "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_book), "inventory_stock_adjustment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_stock_adjustment), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_authors_individual", "inventory_individual", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_individual), "inventory_book_authors", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_authors), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_deposit_return_inventory_sale", "inventory_sale", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_sale), "inventory_book_deposit_return", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_deposit_return), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_distributor_return_inventory_sale", "inventory_sale", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_sale), "inventory_book_distributor_return", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_distributor_return), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_illustrators_individual", "inventory_individual", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_individual), "inventory_book_illustrators", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_illustrators), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_photographers_individual", "inventory_individual", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_individual), "inventory_book_photographers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_photographers), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_return_customer", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_customer), "inventory_book_return", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_return), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_city", "inventory_city", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_city), "inventory_customer_city", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_city), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_collection_target_readers", "inventory_collection", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_collection), "inventory_collection_target_readers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_collection_target_readers), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_collection_type", "inventory_collection_type", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_collection_type), "inventory_collection", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_collection), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_collection_target_readers_detail", "inventory_target_readers", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_target_readers), "inventory_collection_target_readers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_collection_target_readers), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_contact_inventory_customer", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer), "inventory_contact", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_contact), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_activity", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_customer), "inventory_customer_activity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_activity), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_city_inventory_customer", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer), "inventory_customer_city", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_city), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_contact", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer), "inventory_customer_contact", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_contact), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_tag_inventory_customer", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer), "inventory_customer_tag", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_tag), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_type", "inventory_customer_type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer_type), "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_sale_customer", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_customer), "inventory_sale", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_sale), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_tag_inventory_customer_tags", "inventory_customer_tags", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer_tags), "inventory_customer_tag", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_tag), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_discount_customer_type_inventory_discount", "inventory_discount", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_discount), "inventory_discount_customer_type", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_discount_customer_type), true)]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_edition_inventory_book", "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_book), "inventory_edition", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_edition))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_stock_adjustment_inventory_book", "inventory_book", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_book), "inventory_stock_adjustment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_stock_adjustment))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_deposit_return_inventory_sale", "inventory_sale", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_sale), "inventory_book_deposit_return", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_deposit_return))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_distributor_return_inventory_sale", "inventory_sale", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_sale), "inventory_book_distributor_return", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_distributor_return))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_book_return_customer", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_customer), "inventory_book_return", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_book_return))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_city", "inventory_city", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_city), "inventory_customer_city", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_city))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_collection_target_readers", "inventory_collection", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_collection), "inventory_collection_target_readers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_collection_target_readers))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_collection_type", "inventory_collection_type", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_collection_type), "inventory_collection", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_collection))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_collection_target_readers_detail", "inventory_target_readers", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_target_readers), "inventory_collection_target_readers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_collection_target_readers))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_contact_inventory_customer", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer), "inventory_contact", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_contact))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_activity", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_customer), "inventory_customer_activity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_activity))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_city_inventory_customer", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer), "inventory_customer_city", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_city))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_contact", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer), "inventory_customer_contact", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_contact))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_tag_inventory_customer", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer), "inventory_customer_tag", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_tag))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_type", "inventory_customer_type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer_type), "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_sale_customer", "inventory_customer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_customer), "inventory_sale", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_sale))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_customer_tag_inventory_customer_tags", "inventory_customer_tags", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer_tags), "inventory_customer_tag", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_customer_tag))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_discount_customer_type_inventory_customer_type", "inventory_customer_type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_customer_type), "inventory_discount_customer_type", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_discount_customer_type))]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_discount_customer_type_inventory_discount", "inventory_discount", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_discount), "inventory_discount_customer_type", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_discount_customer_type))]
 [assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_permission_user_level", "inventory_user_level", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_user_level), "inventory_permission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_permission), true)]
-[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_unitary_sale_", "inventory_sale", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_sale), "inventory_unitary_sale", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_unitary_sale), true)]
+[assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_unitary_sale_", "inventory_sale", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_sale), "inventory_unitary_sale", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(sbim.inventory_unitary_sale))]
 [assembly: EdmRelationshipAttribute("SBIMModel", "FK_inventory_user_profile", "inventory_users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(sbim.inventory_users), "inventory_user_profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(sbim.inventory_user_profile), true)]
 
 #endregion
@@ -1232,30 +1230,6 @@ namespace sbim
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> collection_id
-        {
-            get
-            {
-                return _collection_id;
-            }
-            set
-            {
-                Oncollection_idChanging(value);
-                ReportPropertyChanging("collection_id");
-                _collection_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("collection_id");
-                Oncollection_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _collection_id;
-        partial void Oncollection_idChanging(Nullable<global::System.Int32> value);
-        partial void Oncollection_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public Nullable<global::System.Decimal> public_price
         {
             get
@@ -1274,30 +1248,6 @@ namespace sbim
         private Nullable<global::System.Decimal> _public_price;
         partial void Onpublic_priceChanging(Nullable<global::System.Decimal> value);
         partial void Onpublic_priceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> original_publisher_id
-        {
-            get
-            {
-                return _original_publisher_id;
-            }
-            set
-            {
-                Onoriginal_publisher_idChanging(value);
-                ReportPropertyChanging("original_publisher_id");
-                _original_publisher_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("original_publisher_id");
-                Onoriginal_publisher_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _original_publisher_id;
-        partial void Onoriginal_publisher_idChanging(Nullable<global::System.Int32> value);
-        partial void Onoriginal_publisher_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1546,13 +1496,11 @@ namespace sbim
         /// Create a new inventory_book_authors object.
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
-        /// <param name="book_id">Initial value of the book_id property.</param>
         /// <param name="individual_id">Initial value of the individual_id property.</param>
-        public static inventory_book_authors Createinventory_book_authors(global::System.Int32 id, global::System.Int32 book_id, global::System.Int32 individual_id)
+        public static inventory_book_authors Createinventory_book_authors(global::System.Int32 id, global::System.Int32 individual_id)
         {
             inventory_book_authors inventory_book_authors = new inventory_book_authors();
             inventory_book_authors.id = id;
-            inventory_book_authors.book_id = book_id;
             inventory_book_authors.individual_id = individual_id;
             return inventory_book_authors;
         }
@@ -1586,30 +1534,6 @@ namespace sbim
         private global::System.Int32 _id;
         partial void OnidChanging(global::System.Int32 value);
         partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 book_id
-        {
-            get
-            {
-                return _book_id;
-            }
-            set
-            {
-                Onbook_idChanging(value);
-                ReportPropertyChanging("book_id");
-                _book_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("book_id");
-                Onbook_idChanged();
-            }
-        }
-        private global::System.Int32 _book_id;
-        partial void Onbook_idChanging(global::System.Int32 value);
-        partial void Onbook_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1676,44 +1600,6 @@ namespace sbim
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SBIMModel", "FK_inventory_book_authors_individual", "inventory_individual")]
-        public inventory_individual inventory_individual
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_authors_individual", "inventory_individual").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_authors_individual", "inventory_individual").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<inventory_individual> inventory_individualReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_authors_individual", "inventory_individual");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_authors_individual", "inventory_individual", value);
-                }
-            }
-        }
 
         #endregion
     }
@@ -1734,15 +1620,13 @@ namespace sbim
         /// <param name="id">Initial value of the id property.</param>
         /// <param name="book_id">Initial value of the book_id property.</param>
         /// <param name="quantity">Initial value of the quantity property.</param>
-        /// <param name="sale_id">Initial value of the sale_id property.</param>
         /// <param name="date">Initial value of the date property.</param>
-        public static inventory_book_deposit_return Createinventory_book_deposit_return(global::System.Int32 id, global::System.Int32 book_id, global::System.Int32 quantity, global::System.Int32 sale_id, global::System.DateTime date)
+        public static inventory_book_deposit_return Createinventory_book_deposit_return(global::System.Int32 id, global::System.Int32 book_id, global::System.Int32 quantity, global::System.DateTime date)
         {
             inventory_book_deposit_return inventory_book_deposit_return = new inventory_book_deposit_return();
             inventory_book_deposit_return.id = id;
             inventory_book_deposit_return.book_id = book_id;
             inventory_book_deposit_return.quantity = quantity;
-            inventory_book_deposit_return.sale_id = sale_id;
             inventory_book_deposit_return.date = date;
             return inventory_book_deposit_return;
         }
@@ -1830,30 +1714,6 @@ namespace sbim
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 sale_id
-        {
-            get
-            {
-                return _sale_id;
-            }
-            set
-            {
-                Onsale_idChanging(value);
-                ReportPropertyChanging("sale_id");
-                _sale_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("sale_id");
-                Onsale_idChanged();
-            }
-        }
-        private global::System.Int32 _sale_id;
-        partial void Onsale_idChanging(global::System.Int32 value);
-        partial void Onsale_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.DateTime date
         {
             get
@@ -1934,15 +1794,13 @@ namespace sbim
         /// <param name="id">Initial value of the id property.</param>
         /// <param name="book_id">Initial value of the book_id property.</param>
         /// <param name="quantity">Initial value of the quantity property.</param>
-        /// <param name="sale_id">Initial value of the sale_id property.</param>
         /// <param name="date">Initial value of the date property.</param>
-        public static inventory_book_distributor_return Createinventory_book_distributor_return(global::System.Int32 id, global::System.Int32 book_id, global::System.Int32 quantity, global::System.Int32 sale_id, global::System.DateTime date)
+        public static inventory_book_distributor_return Createinventory_book_distributor_return(global::System.Int32 id, global::System.Int32 book_id, global::System.Int32 quantity, global::System.DateTime date)
         {
             inventory_book_distributor_return inventory_book_distributor_return = new inventory_book_distributor_return();
             inventory_book_distributor_return.id = id;
             inventory_book_distributor_return.book_id = book_id;
             inventory_book_distributor_return.quantity = quantity;
-            inventory_book_distributor_return.sale_id = sale_id;
             inventory_book_distributor_return.date = date;
             return inventory_book_distributor_return;
         }
@@ -2030,30 +1888,6 @@ namespace sbim
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 sale_id
-        {
-            get
-            {
-                return _sale_id;
-            }
-            set
-            {
-                Onsale_idChanging(value);
-                ReportPropertyChanging("sale_id");
-                _sale_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("sale_id");
-                Onsale_idChanged();
-            }
-        }
-        private global::System.Int32 _sale_id;
-        partial void Onsale_idChanging(global::System.Int32 value);
-        partial void Onsale_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.DateTime date
         {
             get
@@ -2132,13 +1966,11 @@ namespace sbim
         /// Create a new inventory_book_illustrators object.
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
-        /// <param name="book_id">Initial value of the book_id property.</param>
         /// <param name="individual_id">Initial value of the individual_id property.</param>
-        public static inventory_book_illustrators Createinventory_book_illustrators(global::System.Int32 id, global::System.Int32 book_id, global::System.Int32 individual_id)
+        public static inventory_book_illustrators Createinventory_book_illustrators(global::System.Int32 id, global::System.Int32 individual_id)
         {
             inventory_book_illustrators inventory_book_illustrators = new inventory_book_illustrators();
             inventory_book_illustrators.id = id;
-            inventory_book_illustrators.book_id = book_id;
             inventory_book_illustrators.individual_id = individual_id;
             return inventory_book_illustrators;
         }
@@ -2172,30 +2004,6 @@ namespace sbim
         private global::System.Int32 _id;
         partial void OnidChanging(global::System.Int32 value);
         partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 book_id
-        {
-            get
-            {
-                return _book_id;
-            }
-            set
-            {
-                Onbook_idChanging(value);
-                ReportPropertyChanging("book_id");
-                _book_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("book_id");
-                Onbook_idChanged();
-            }
-        }
-        private global::System.Int32 _book_id;
-        partial void Onbook_idChanging(global::System.Int32 value);
-        partial void Onbook_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2259,44 +2067,6 @@ namespace sbim
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<inventory_book>("SBIMModel.FK_inventory_book_illustrators_inventory_book", "inventory_book", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SBIMModel", "FK_inventory_book_illustrators_individual", "inventory_individual")]
-        public inventory_individual inventory_individual
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_illustrators_individual", "inventory_individual").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_illustrators_individual", "inventory_individual").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<inventory_individual> inventory_individualReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_illustrators_individual", "inventory_individual");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_illustrators_individual", "inventory_individual", value);
                 }
             }
         }
@@ -2448,44 +2218,6 @@ namespace sbim
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SBIMModel", "FK_inventory_book_photographers_individual", "inventory_individual")]
-        public inventory_individual inventory_individual
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_photographers_individual", "inventory_individual").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_photographers_individual", "inventory_individual").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<inventory_individual> inventory_individualReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_photographers_individual", "inventory_individual");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<inventory_individual>("SBIMModel.FK_inventory_book_photographers_individual", "inventory_individual", value);
-                }
-            }
-        }
 
         #endregion
     }
@@ -2504,16 +2236,14 @@ namespace sbim
         /// Create a new inventory_book_return object.
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
-        /// <param name="customer_id">Initial value of the customer_id property.</param>
         /// <param name="book_id">Initial value of the book_id property.</param>
         /// <param name="quantity">Initial value of the quantity property.</param>
         /// <param name="comments">Initial value of the comments property.</param>
         /// <param name="date">Initial value of the date property.</param>
-        public static inventory_book_return Createinventory_book_return(global::System.Int32 id, global::System.Int32 customer_id, global::System.Int32 book_id, global::System.Int32 quantity, global::System.String comments, global::System.DateTime date)
+        public static inventory_book_return Createinventory_book_return(global::System.Int32 id, global::System.Int32 book_id, global::System.Int32 quantity, global::System.String comments, global::System.DateTime date)
         {
             inventory_book_return inventory_book_return = new inventory_book_return();
             inventory_book_return.id = id;
-            inventory_book_return.customer_id = customer_id;
             inventory_book_return.book_id = book_id;
             inventory_book_return.quantity = quantity;
             inventory_book_return.comments = comments;
@@ -2550,30 +2280,6 @@ namespace sbim
         private global::System.Int32 _id;
         partial void OnidChanging(global::System.Int32 value);
         partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 customer_id
-        {
-            get
-            {
-                return _customer_id;
-            }
-            set
-            {
-                Oncustomer_idChanging(value);
-                ReportPropertyChanging("customer_id");
-                _customer_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("customer_id");
-                Oncustomer_idChanged();
-            }
-        }
-        private global::System.Int32 _customer_id;
-        partial void Oncustomer_idChanging(global::System.Int32 value);
-        partial void Oncustomer_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2836,14 +2542,12 @@ namespace sbim
         /// <param name="id">Initial value of the id property.</param>
         /// <param name="name">Initial value of the name property.</param>
         /// <param name="name_kh">Initial value of the name_kh property.</param>
-        /// <param name="collection_type_id">Initial value of the collection_type_id property.</param>
-        public static inventory_collection Createinventory_collection(global::System.Int32 id, global::System.String name, global::System.String name_kh, global::System.Int32 collection_type_id)
+        public static inventory_collection Createinventory_collection(global::System.Int32 id, global::System.String name, global::System.String name_kh)
         {
             inventory_collection inventory_collection = new inventory_collection();
             inventory_collection.id = id;
             inventory_collection.name = name;
             inventory_collection.name_kh = name_kh;
-            inventory_collection.collection_type_id = collection_type_id;
             return inventory_collection;
         }
 
@@ -2924,30 +2628,6 @@ namespace sbim
         private global::System.String _name_kh;
         partial void Onname_khChanging(global::System.String value);
         partial void Onname_khChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 collection_type_id
-        {
-            get
-            {
-                return _collection_type_id;
-            }
-            set
-            {
-                Oncollection_type_idChanging(value);
-                ReportPropertyChanging("collection_type_id");
-                _collection_type_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("collection_type_id");
-                Oncollection_type_idChanged();
-            }
-        }
-        private global::System.Int32 _collection_type_id;
-        partial void Oncollection_type_idChanging(global::System.Int32 value);
-        partial void Oncollection_type_idChanged();
 
         #endregion
     
@@ -3052,14 +2732,10 @@ namespace sbim
         /// Create a new inventory_collection_target_readers object.
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
-        /// <param name="collection_id">Initial value of the collection_id property.</param>
-        /// <param name="target_readers_id">Initial value of the target_readers_id property.</param>
-        public static inventory_collection_target_readers Createinventory_collection_target_readers(global::System.Int32 id, global::System.Int32 collection_id, global::System.Int32 target_readers_id)
+        public static inventory_collection_target_readers Createinventory_collection_target_readers(global::System.Int32 id)
         {
             inventory_collection_target_readers inventory_collection_target_readers = new inventory_collection_target_readers();
             inventory_collection_target_readers.id = id;
-            inventory_collection_target_readers.collection_id = collection_id;
-            inventory_collection_target_readers.target_readers_id = target_readers_id;
             return inventory_collection_target_readers;
         }
 
@@ -3092,54 +2768,6 @@ namespace sbim
         private global::System.Int32 _id;
         partial void OnidChanging(global::System.Int32 value);
         partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 collection_id
-        {
-            get
-            {
-                return _collection_id;
-            }
-            set
-            {
-                Oncollection_idChanging(value);
-                ReportPropertyChanging("collection_id");
-                _collection_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("collection_id");
-                Oncollection_idChanged();
-            }
-        }
-        private global::System.Int32 _collection_id;
-        partial void Oncollection_idChanging(global::System.Int32 value);
-        partial void Oncollection_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 target_readers_id
-        {
-            get
-            {
-                return _target_readers_id;
-            }
-            set
-            {
-                Ontarget_readers_idChanging(value);
-                ReportPropertyChanging("target_readers_id");
-                _target_readers_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("target_readers_id");
-                Ontarget_readers_idChanged();
-            }
-        }
-        private global::System.Int32 _target_readers_id;
-        partial void Ontarget_readers_idChanging(global::System.Int32 value);
-        partial void Ontarget_readers_idChanged();
 
         #endregion
     
@@ -3377,30 +3005,6 @@ namespace sbim
         private Nullable<global::System.DateTime> _creation_date;
         partial void Oncreation_dateChanging(Nullable<global::System.DateTime> value);
         partial void Oncreation_dateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> customer_id
-        {
-            get
-            {
-                return _customer_id;
-            }
-            set
-            {
-                Oncustomer_idChanging(value);
-                ReportPropertyChanging("customer_id");
-                _customer_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("customer_id");
-                Oncustomer_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _customer_id;
-        partial void Oncustomer_idChanging(Nullable<global::System.Int32> value);
-        partial void Oncustomer_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3644,30 +3248,6 @@ namespace sbim
         private global::System.String _name;
         partial void OnnameChanging(global::System.String value);
         partial void OnnameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> type_id
-        {
-            get
-            {
-                return _type_id;
-            }
-            set
-            {
-                Ontype_idChanging(value);
-                ReportPropertyChanging("type_id");
-                _type_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("type_id");
-                Ontype_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _type_id;
-        partial void Ontype_idChanging(Nullable<global::System.Int32> value);
-        partial void Ontype_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4074,14 +3654,10 @@ namespace sbim
         /// Create a new inventory_customer_activity object.
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
-        /// <param name="customer_id">Initial value of the customer_id property.</param>
-        /// <param name="activity_id">Initial value of the activity_id property.</param>
-        public static inventory_customer_activity Createinventory_customer_activity(global::System.Int32 id, global::System.Int32 customer_id, global::System.Int32 activity_id)
+        public static inventory_customer_activity Createinventory_customer_activity(global::System.Int32 id)
         {
             inventory_customer_activity inventory_customer_activity = new inventory_customer_activity();
             inventory_customer_activity.id = id;
-            inventory_customer_activity.customer_id = customer_id;
-            inventory_customer_activity.activity_id = activity_id;
             return inventory_customer_activity;
         }
 
@@ -4114,54 +3690,6 @@ namespace sbim
         private global::System.Int32 _id;
         partial void OnidChanging(global::System.Int32 value);
         partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 customer_id
-        {
-            get
-            {
-                return _customer_id;
-            }
-            set
-            {
-                Oncustomer_idChanging(value);
-                ReportPropertyChanging("customer_id");
-                _customer_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("customer_id");
-                Oncustomer_idChanged();
-            }
-        }
-        private global::System.Int32 _customer_id;
-        partial void Oncustomer_idChanging(global::System.Int32 value);
-        partial void Oncustomer_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 activity_id
-        {
-            get
-            {
-                return _activity_id;
-            }
-            set
-            {
-                Onactivity_idChanging(value);
-                ReportPropertyChanging("activity_id");
-                _activity_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("activity_id");
-                Onactivity_idChanged();
-            }
-        }
-        private global::System.Int32 _activity_id;
-        partial void Onactivity_idChanging(global::System.Int32 value);
-        partial void Onactivity_idChanged();
 
         #endregion
     
@@ -4269,54 +3797,6 @@ namespace sbim
 
         #endregion
         #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> city_id
-        {
-            get
-            {
-                return _city_id;
-            }
-            set
-            {
-                Oncity_idChanging(value);
-                ReportPropertyChanging("city_id");
-                _city_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("city_id");
-                Oncity_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _city_id;
-        partial void Oncity_idChanging(Nullable<global::System.Int32> value);
-        partial void Oncity_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> customer_id
-        {
-            get
-            {
-                return _customer_id;
-            }
-            set
-            {
-                Oncustomer_idChanging(value);
-                ReportPropertyChanging("customer_id");
-                _customer_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("customer_id");
-                Oncustomer_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _customer_id;
-        partial void Oncustomer_idChanging(Nullable<global::System.Int32> value);
-        partial void Oncustomer_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4451,30 +3931,6 @@ namespace sbim
 
         #endregion
         #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> customer_id
-        {
-            get
-            {
-                return _customer_id;
-            }
-            set
-            {
-                Oncustomer_idChanging(value);
-                ReportPropertyChanging("customer_id");
-                _customer_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("customer_id");
-                Oncustomer_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _customer_id;
-        partial void Oncustomer_idChanging(Nullable<global::System.Int32> value);
-        partial void Oncustomer_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4715,54 +4171,6 @@ namespace sbim
 
         #endregion
         #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> customer_id
-        {
-            get
-            {
-                return _customer_id;
-            }
-            set
-            {
-                Oncustomer_idChanging(value);
-                ReportPropertyChanging("customer_id");
-                _customer_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("customer_id");
-                Oncustomer_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _customer_id;
-        partial void Oncustomer_idChanging(Nullable<global::System.Int32> value);
-        partial void Oncustomer_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> customer_tags_id
-        {
-            get
-            {
-                return _customer_tags_id;
-            }
-            set
-            {
-                Oncustomer_tags_idChanging(value);
-                ReportPropertyChanging("customer_tags_id");
-                _customer_tags_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("customer_tags_id");
-                Oncustomer_tags_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _customer_tags_id;
-        partial void Oncustomer_tags_idChanging(Nullable<global::System.Int32> value);
-        partial void Oncustomer_tags_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -5104,6 +4512,28 @@ namespace sbim
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SBIMModel", "FK_inventory_discount_customer_type_inventory_customer_type", "inventory_discount_customer_type")]
+        public EntityCollection<inventory_discount_customer_type> inventory_discount_customer_type
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<inventory_discount_customer_type>("SBIMModel.FK_inventory_discount_customer_type_inventory_customer_type", "inventory_discount_customer_type");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<inventory_discount_customer_type>("SBIMModel.FK_inventory_discount_customer_type_inventory_customer_type", "inventory_discount_customer_type", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -5287,54 +4717,6 @@ namespace sbim
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> customer_type_id
-        {
-            get
-            {
-                return _customer_type_id;
-            }
-            set
-            {
-                Oncustomer_type_idChanging(value);
-                ReportPropertyChanging("customer_type_id");
-                _customer_type_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("customer_type_id");
-                Oncustomer_type_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _customer_type_id;
-        partial void Oncustomer_type_idChanging(Nullable<global::System.Int32> value);
-        partial void Oncustomer_type_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> discount_id
-        {
-            get
-            {
-                return _discount_id;
-            }
-            set
-            {
-                Ondiscount_idChanging(value);
-                ReportPropertyChanging("discount_id");
-                _discount_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("discount_id");
-                Ondiscount_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _discount_id;
-        partial void Ondiscount_idChanging(Nullable<global::System.Int32> value);
-        partial void Ondiscount_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 id
@@ -5362,6 +4744,44 @@ namespace sbim
         #endregion
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SBIMModel", "FK_inventory_discount_customer_type_inventory_customer_type", "inventory_customer_type")]
+        public inventory_customer_type inventory_customer_type
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_customer_type>("SBIMModel.FK_inventory_discount_customer_type_inventory_customer_type", "inventory_customer_type").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_customer_type>("SBIMModel.FK_inventory_discount_customer_type_inventory_customer_type", "inventory_customer_type").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<inventory_customer_type> inventory_customer_typeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<inventory_customer_type>("SBIMModel.FK_inventory_discount_customer_type_inventory_customer_type", "inventory_customer_type");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<inventory_customer_type>("SBIMModel.FK_inventory_discount_customer_type_inventory_customer_type", "inventory_customer_type", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -5499,15 +4919,13 @@ namespace sbim
         /// Create a new inventory_edition object.
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
-        /// <param name="book_id">Initial value of the book_id property.</param>
         /// <param name="edition_number">Initial value of the edition_number property.</param>
         /// <param name="quantity">Initial value of the quantity property.</param>
         /// <param name="print_date">Initial value of the print_date property.</param>
-        public static inventory_edition Createinventory_edition(global::System.Int32 id, global::System.Int32 book_id, global::System.Int32 edition_number, global::System.Int32 quantity, global::System.DateTime print_date)
+        public static inventory_edition Createinventory_edition(global::System.Int32 id, global::System.Int32 edition_number, global::System.Int32 quantity, global::System.DateTime print_date)
         {
             inventory_edition inventory_edition = new inventory_edition();
             inventory_edition.id = id;
-            inventory_edition.book_id = book_id;
             inventory_edition.edition_number = edition_number;
             inventory_edition.quantity = quantity;
             inventory_edition.print_date = print_date;
@@ -5543,30 +4961,6 @@ namespace sbim
         private global::System.Int32 _id;
         partial void OnidChanging(global::System.Int32 value);
         partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 book_id
-        {
-            get
-            {
-                return _book_id;
-            }
-            set
-            {
-                Onbook_idChanging(value);
-                ReportPropertyChanging("book_id");
-                _book_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("book_id");
-                Onbook_idChanged();
-            }
-        }
-        private global::System.Int32 _book_id;
-        partial void Onbook_idChanging(global::System.Int32 value);
-        partial void Onbook_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6317,75 +5711,6 @@ namespace sbim
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SBIMModel", "FK_inventory_book_authors_individual", "inventory_book_authors")]
-        public EntityCollection<inventory_book_authors> inventory_book_authors
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<inventory_book_authors>("SBIMModel.FK_inventory_book_authors_individual", "inventory_book_authors");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<inventory_book_authors>("SBIMModel.FK_inventory_book_authors_individual", "inventory_book_authors", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SBIMModel", "FK_inventory_book_illustrators_individual", "inventory_book_illustrators")]
-        public EntityCollection<inventory_book_illustrators> inventory_book_illustrators
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<inventory_book_illustrators>("SBIMModel.FK_inventory_book_illustrators_individual", "inventory_book_illustrators");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<inventory_book_illustrators>("SBIMModel.FK_inventory_book_illustrators_individual", "inventory_book_illustrators", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SBIMModel", "FK_inventory_book_photographers_individual", "inventory_book_photographers")]
-        public EntityCollection<inventory_book_photographers> inventory_book_photographers
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<inventory_book_photographers>("SBIMModel.FK_inventory_book_photographers_individual", "inventory_book_photographers");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<inventory_book_photographers>("SBIMModel.FK_inventory_book_photographers_individual", "inventory_book_photographers", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -6660,18 +5985,16 @@ namespace sbim
         /// Create a new inventory_sale object.
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
-        /// <param name="customer_id">Initial value of the customer_id property.</param>
         /// <param name="date_open">Initial value of the date_open property.</param>
         /// <param name="date_concluded">Initial value of the date_concluded property.</param>
         /// <param name="type">Initial value of the type property.</param>
         /// <param name="status">Initial value of the status property.</param>
         /// <param name="total">Initial value of the total property.</param>
         /// <param name="notes">Initial value of the notes property.</param>
-        public static inventory_sale Createinventory_sale(global::System.Int32 id, global::System.Int32 customer_id, global::System.DateTime date_open, global::System.DateTime date_concluded, global::System.Int32 type, global::System.Int32 status, global::System.Decimal total, global::System.String notes)
+        public static inventory_sale Createinventory_sale(global::System.Int32 id, global::System.DateTime date_open, global::System.DateTime date_concluded, global::System.Int32 type, global::System.Int32 status, global::System.Decimal total, global::System.String notes)
         {
             inventory_sale inventory_sale = new inventory_sale();
             inventory_sale.id = id;
-            inventory_sale.customer_id = customer_id;
             inventory_sale.date_open = date_open;
             inventory_sale.date_concluded = date_concluded;
             inventory_sale.type = type;
@@ -6710,30 +6033,6 @@ namespace sbim
         private global::System.Int32 _id;
         partial void OnidChanging(global::System.Int32 value);
         partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 customer_id
-        {
-            get
-            {
-                return _customer_id;
-            }
-            set
-            {
-                Oncustomer_idChanging(value);
-                ReportPropertyChanging("customer_id");
-                _customer_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("customer_id");
-                Oncustomer_idChanged();
-            }
-        }
-        private global::System.Int32 _customer_id;
-        partial void Oncustomer_idChanging(global::System.Int32 value);
-        partial void Oncustomer_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7004,15 +6303,13 @@ namespace sbim
         /// Create a new inventory_stock_adjustment object.
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
-        /// <param name="book_id">Initial value of the book_id property.</param>
         /// <param name="quantity">Initial value of the quantity property.</param>
         /// <param name="notes">Initial value of the notes property.</param>
         /// <param name="date">Initial value of the date property.</param>
-        public static inventory_stock_adjustment Createinventory_stock_adjustment(global::System.Int32 id, global::System.Int32 book_id, global::System.Int32 quantity, global::System.String notes, global::System.DateTime date)
+        public static inventory_stock_adjustment Createinventory_stock_adjustment(global::System.Int32 id, global::System.Int32 quantity, global::System.String notes, global::System.DateTime date)
         {
             inventory_stock_adjustment inventory_stock_adjustment = new inventory_stock_adjustment();
             inventory_stock_adjustment.id = id;
-            inventory_stock_adjustment.book_id = book_id;
             inventory_stock_adjustment.quantity = quantity;
             inventory_stock_adjustment.notes = notes;
             inventory_stock_adjustment.date = date;
@@ -7048,30 +6345,6 @@ namespace sbim
         private global::System.Int32 _id;
         partial void OnidChanging(global::System.Int32 value);
         partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 book_id
-        {
-            get
-            {
-                return _book_id;
-            }
-            set
-            {
-                Onbook_idChanging(value);
-                ReportPropertyChanging("book_id");
-                _book_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("book_id");
-                Onbook_idChanged();
-            }
-        }
-        private global::System.Int32 _book_id;
-        partial void Onbook_idChanging(global::System.Int32 value);
-        partial void Onbook_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7313,15 +6586,13 @@ namespace sbim
         /// <param name="book_id">Initial value of the book_id property.</param>
         /// <param name="quantity">Initial value of the quantity property.</param>
         /// <param name="unit_price">Initial value of the unit_price property.</param>
-        /// <param name="sale_id">Initial value of the sale_id property.</param>
-        public static inventory_unitary_sale Createinventory_unitary_sale(global::System.Int32 id, global::System.Int32 book_id, global::System.Int32 quantity, global::System.Decimal unit_price, global::System.Int32 sale_id)
+        public static inventory_unitary_sale Createinventory_unitary_sale(global::System.Int32 id, global::System.Int32 book_id, global::System.Int32 quantity, global::System.Decimal unit_price)
         {
             inventory_unitary_sale inventory_unitary_sale = new inventory_unitary_sale();
             inventory_unitary_sale.id = id;
             inventory_unitary_sale.book_id = book_id;
             inventory_unitary_sale.quantity = quantity;
             inventory_unitary_sale.unit_price = unit_price;
-            inventory_unitary_sale.sale_id = sale_id;
             return inventory_unitary_sale;
         }
 
@@ -7426,30 +6697,6 @@ namespace sbim
         private global::System.Decimal _unit_price;
         partial void Onunit_priceChanging(global::System.Decimal value);
         partial void Onunit_priceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 sale_id
-        {
-            get
-            {
-                return _sale_id;
-            }
-            set
-            {
-                Onsale_idChanging(value);
-                ReportPropertyChanging("sale_id");
-                _sale_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("sale_id");
-                Onsale_idChanged();
-            }
-        }
-        private global::System.Int32 _sale_id;
-        partial void Onsale_idChanging(global::System.Int32 value);
-        partial void Onsale_idChanged();
 
         #endregion
     
