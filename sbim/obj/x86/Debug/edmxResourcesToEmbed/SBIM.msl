@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SBIMModelStoreContainer" CdmEntityContainer="SBIMEntities">
+    <EntitySetMapping Name="inventory_activity">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_activity">
+        <MappingFragment StoreEntitySet="inventory_activity">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_book">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_book">
+        <MappingFragment StoreEntitySet="inventory_book">
+          <ScalarProperty Name="book_stock_alert" ColumnName="book_stock_alert" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="reference" ColumnName="reference" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="title_kh" ColumnName="title_kh" />
+          <ScalarProperty Name="collection_id" ColumnName="collection_id" />
+          <ScalarProperty Name="public_price" ColumnName="public_price" />
+          <ScalarProperty Name="original_publisher_id" ColumnName="original_publisher_id" />
+          <ScalarProperty Name="printing_cost" ColumnName="printing_cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_book_authors">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_book_authors">
+        <MappingFragment StoreEntitySet="inventory_book_authors">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="individual_id" ColumnName="individual_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_book_deposit_return">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_book_deposit_return">
+        <MappingFragment StoreEntitySet="inventory_book_deposit_return">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="sale_id" ColumnName="sale_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_book_distributor_return">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_book_distributor_return">
+        <MappingFragment StoreEntitySet="inventory_book_distributor_return">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="sale_id" ColumnName="sale_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_book_illustrators">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_book_illustrators">
+        <MappingFragment StoreEntitySet="inventory_book_illustrators">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="individual_id" ColumnName="individual_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_book_photographers">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_book_photographers">
+        <MappingFragment StoreEntitySet="inventory_book_photographers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="individual_id" ColumnName="individual_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_book_return">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_book_return">
+        <MappingFragment StoreEntitySet="inventory_book_return">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_city">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_city">
+        <MappingFragment StoreEntitySet="inventory_city">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_collection">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_collection">
+        <MappingFragment StoreEntitySet="inventory_collection">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="name_kh" ColumnName="name_kh" />
+          <ScalarProperty Name="collection_type_id" ColumnName="collection_type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_collection_target_readers">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_collection_target_readers">
+        <MappingFragment StoreEntitySet="inventory_collection_target_readers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="collection_id" ColumnName="collection_id" />
+          <ScalarProperty Name="target_readers_id" ColumnName="target_readers_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_collection_type">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_collection_type">
+        <MappingFragment StoreEntitySet="inventory_collection_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_contact">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_contact">
+        <MappingFragment StoreEntitySet="inventory_contact">
+          <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="note" ColumnName="note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_customer">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_customer">
+        <MappingFragment StoreEntitySet="inventory_customer">
+          <ScalarProperty Name="key_commercial" ColumnName="key_commercial" />
+          <ScalarProperty Name="last_contact" ColumnName="last_contact" />
+          <ScalarProperty Name="account_creation" ColumnName="account_creation" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="authorize_sale_type" ColumnName="authorize_sale_type" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="website" ColumnName="website" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_customer_activity">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_customer_activity">
+        <MappingFragment StoreEntitySet="inventory_customer_activity">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="activity_id" ColumnName="activity_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_customer_city">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_customer_city">
+        <MappingFragment StoreEntitySet="inventory_customer_city">
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_customer_contact">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_customer_contact">
+        <MappingFragment StoreEntitySet="inventory_customer_contact">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_customer_tag">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_customer_tag">
+        <MappingFragment StoreEntitySet="inventory_customer_tag">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="customer_tags_id" ColumnName="customer_tags_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_customer_tags">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_customer_tags">
+        <MappingFragment StoreEntitySet="inventory_customer_tags">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_customer_type">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_customer_type">
+        <MappingFragment StoreEntitySet="inventory_customer_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_discount">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_discount">
+        <MappingFragment StoreEntitySet="inventory_discount">
+          <ScalarProperty Name="collection_id" ColumnName="collection_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="percentage" ColumnName="percentage" />
+          <ScalarProperty Name="sale_type" ColumnName="sale_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_discount_customer_type">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_discount_customer_type">
+        <MappingFragment StoreEntitySet="inventory_discount_customer_type">
+          <ScalarProperty Name="customer_type_id" ColumnName="customer_type_id" />
+          <ScalarProperty Name="discount_id" ColumnName="discount_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_dollarrielrate">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_dollarrielrate">
+        <MappingFragment StoreEntitySet="inventory_dollarrielrate">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_edition">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_edition">
+        <MappingFragment StoreEntitySet="inventory_edition">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="edition_number" ColumnName="edition_number" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="print_date" ColumnName="print_date" />
+          <ScalarProperty Name="printing_cost" ColumnName="printing_cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_filtersave">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_filtersave">
+        <MappingFragment StoreEntitySet="inventory_filtersave">
+          <ScalarProperty Name="account_creation" ColumnName="account_creation" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="commercial_qualification" ColumnName="commercial_qualification" />
+          <ScalarProperty Name="customer_type" ColumnName="customer_type" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="is_dashboard" ColumnName="is_dashboard" />
+          <ScalarProperty Name="last_contact" ColumnName="last_contact" />
+          <ScalarProperty Name="last_sale" ColumnName="last_sale" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sale_volume" ColumnName="sale_volume" />
+          <ScalarProperty Name="tag" ColumnName="tag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_individual">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_individual">
+        <MappingFragment StoreEntitySet="inventory_individual">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="is_author" ColumnName="is_author" />
+          <ScalarProperty Name="is_photographer" ColumnName="is_photographer" />
+          <ScalarProperty Name="is_illustrator" ColumnName="is_illustrator" />
+          <ScalarProperty Name="is_translator" ColumnName="is_translator" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_original_publisher">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_original_publisher">
+        <MappingFragment StoreEntitySet="inventory_original_publisher">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_permission">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_permission">
+        <MappingFragment StoreEntitySet="inventory_permission">
+          <ScalarProperty Name="level_id" ColumnName="level_id" />
+          <ScalarProperty Name="permission_id" ColumnName="permission_id" />
+          <ScalarProperty Name="permission_name" ColumnName="permission_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_sale">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_sale">
+        <MappingFragment StoreEntitySet="inventory_sale">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="date_open" ColumnName="date_open" />
+          <ScalarProperty Name="date_concluded" ColumnName="date_concluded" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_stock_adjustment">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_stock_adjustment">
+        <MappingFragment StoreEntitySet="inventory_stock_adjustment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_target_readers">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_target_readers">
+        <MappingFragment StoreEntitySet="inventory_target_readers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_unitary_sale">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_unitary_sale">
+        <MappingFragment StoreEntitySet="inventory_unitary_sale">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+          <ScalarProperty Name="sale_id" ColumnName="sale_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_user_level">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_user_level">
+        <MappingFragment StoreEntitySet="inventory_user_level">
+          <ScalarProperty Name="level_id" ColumnName="level_id" />
+          <ScalarProperty Name="level_caption" ColumnName="level_caption" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_user_profile">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_user_profile">
+        <MappingFragment StoreEntitySet="inventory_user_profile">
+          <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_users">
+      <EntityTypeMapping TypeName="SBIMModel.inventory_users">
+        <MappingFragment StoreEntitySet="inventory_users">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="level_id" ColumnName="level_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="updated_user" ColumnName="updated_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SBIMModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

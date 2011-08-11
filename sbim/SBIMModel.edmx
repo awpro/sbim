@@ -1,0 +1,1775 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SBIMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SBIMModelStoreContainer">
+          <EntitySet Name="inventory_activity" EntityType="SBIMModel.Store.inventory_activity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_book" EntityType="SBIMModel.Store.inventory_book" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_book_authors" EntityType="SBIMModel.Store.inventory_book_authors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_book_deposit_return" EntityType="SBIMModel.Store.inventory_book_deposit_return" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_book_distributor_return" EntityType="SBIMModel.Store.inventory_book_distributor_return" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_book_illustrators" EntityType="SBIMModel.Store.inventory_book_illustrators" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_book_photographers" EntityType="SBIMModel.Store.inventory_book_photographers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_book_return" EntityType="SBIMModel.Store.inventory_book_return" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_city" EntityType="SBIMModel.Store.inventory_city" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_collection" EntityType="SBIMModel.Store.inventory_collection" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_collection_target_readers" EntityType="SBIMModel.Store.inventory_collection_target_readers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_collection_type" EntityType="SBIMModel.Store.inventory_collection_type" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_contact" EntityType="SBIMModel.Store.inventory_contact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_customer" EntityType="SBIMModel.Store.inventory_customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_customer_activity" EntityType="SBIMModel.Store.inventory_customer_activity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_customer_city" EntityType="SBIMModel.Store.inventory_customer_city" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_customer_contact" EntityType="SBIMModel.Store.inventory_customer_contact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_customer_tag" EntityType="SBIMModel.Store.inventory_customer_tag" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_customer_tags" EntityType="SBIMModel.Store.inventory_customer_tags" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_customer_type" EntityType="SBIMModel.Store.inventory_customer_type" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_discount" EntityType="SBIMModel.Store.inventory_discount" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_discount_customer_type" EntityType="SBIMModel.Store.inventory_discount_customer_type" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_dollarrielrate" EntityType="SBIMModel.Store.inventory_dollarrielrate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_edition" EntityType="SBIMModel.Store.inventory_edition" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_filtersave" EntityType="SBIMModel.Store.inventory_filtersave" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_individual" EntityType="SBIMModel.Store.inventory_individual" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_original_publisher" EntityType="SBIMModel.Store.inventory_original_publisher" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_permission" EntityType="SBIMModel.Store.inventory_permission" store:Type="Tables" store:Schema="dbo" store:Name="inventory_permission">
+            <DefiningQuery>SELECT 
+      [inventory_permission].[level_id] AS [level_id], 
+      [inventory_permission].[permission_id] AS [permission_id], 
+      [inventory_permission].[permission_name] AS [permission_name]
+      FROM [dbo].[inventory_permission] AS [inventory_permission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inventory_sale" EntityType="SBIMModel.Store.inventory_sale" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_stock_adjustment" EntityType="SBIMModel.Store.inventory_stock_adjustment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_target_readers" EntityType="SBIMModel.Store.inventory_target_readers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_unitary_sale" EntityType="SBIMModel.Store.inventory_unitary_sale" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_user_level" EntityType="SBIMModel.Store.inventory_user_level" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_user_profile" EntityType="SBIMModel.Store.inventory_user_profile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="inventory_users" EntityType="SBIMModel.Store.inventory_users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="SBIMModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_inventory_book_authors_inventory_book" Association="SBIMModel.Store.FK_inventory_book_authors_inventory_book">
+            <End Role="inventory_book" EntitySet="inventory_book" />
+            <End Role="inventory_book_authors" EntitySet="inventory_book_authors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_book_deposit_return_inventory_sale" Association="SBIMModel.Store.FK_inventory_book_deposit_return_inventory_sale">
+            <End Role="inventory_sale" EntitySet="inventory_sale" />
+            <End Role="inventory_book_deposit_return" EntitySet="inventory_book_deposit_return" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_book_distributor_return_inventory_sale" Association="SBIMModel.Store.FK_inventory_book_distributor_return_inventory_sale">
+            <End Role="inventory_sale" EntitySet="inventory_sale" />
+            <End Role="inventory_book_distributor_return" EntitySet="inventory_book_distributor_return" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_book_illustrators_inventory_book" Association="SBIMModel.Store.FK_inventory_book_illustrators_inventory_book">
+            <End Role="inventory_book" EntitySet="inventory_book" />
+            <End Role="inventory_book_illustrators" EntitySet="inventory_book_illustrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_book_photographers_inventory_book" Association="SBIMModel.Store.FK_inventory_book_photographers_inventory_book">
+            <End Role="inventory_book" EntitySet="inventory_book" />
+            <End Role="inventory_book_photographers" EntitySet="inventory_book_photographers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_book_return_customer" Association="SBIMModel.Store.FK_inventory_book_return_customer">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_book_return" EntitySet="inventory_book_return" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_contact_inventory_customer" Association="SBIMModel.Store.FK_inventory_contact_inventory_customer">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_contact" EntitySet="inventory_contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_customer_activity" Association="SBIMModel.Store.FK_inventory_customer_activity">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_customer_activity" EntitySet="inventory_customer_activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_customer_city_inventory_customer" Association="SBIMModel.Store.FK_inventory_customer_city_inventory_customer">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_customer_city" EntitySet="inventory_customer_city" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_customer_contact" Association="SBIMModel.Store.FK_inventory_customer_contact">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_customer_contact" EntitySet="inventory_customer_contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_customer_tag_inventory_customer" Association="SBIMModel.Store.FK_inventory_customer_tag_inventory_customer">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_customer_tag" EntitySet="inventory_customer_tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_edition_inventory_book" Association="SBIMModel.Store.FK_inventory_edition_inventory_book">
+            <End Role="inventory_book" EntitySet="inventory_book" />
+            <End Role="inventory_edition" EntitySet="inventory_edition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_permission_user_level" Association="SBIMModel.Store.FK_inventory_permission_user_level">
+            <End Role="inventory_user_level" EntitySet="inventory_user_level" />
+            <End Role="inventory_permission" EntitySet="inventory_permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_sale_customer" Association="SBIMModel.Store.FK_inventory_sale_customer">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_sale" EntitySet="inventory_sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_stock_adjustment_inventory_book" Association="SBIMModel.Store.FK_inventory_stock_adjustment_inventory_book">
+            <End Role="inventory_book" EntitySet="inventory_book" />
+            <End Role="inventory_stock_adjustment" EntitySet="inventory_stock_adjustment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_unitary_sale_" Association="SBIMModel.Store.FK_inventory_unitary_sale_">
+            <End Role="inventory_sale" EntitySet="inventory_sale" />
+            <End Role="inventory_unitary_sale" EntitySet="inventory_unitary_sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_user_profile" Association="SBIMModel.Store.FK_inventory_user_profile">
+            <End Role="inventory_users" EntitySet="inventory_users" />
+            <End Role="inventory_user_profile" EntitySet="inventory_user_profile" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="inventory_activity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="inventory_book">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="book_stock_alert" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="reference" Type="varchar" MaxLength="100" />
+          <Property Name="title" Type="varchar" MaxLength="200" />
+          <Property Name="title_kh" Type="nvarchar" MaxLength="200" />
+          <Property Name="collection_id" Type="int" />
+          <Property Name="public_price" Type="decimal" />
+          <Property Name="original_publisher_id" Type="int" />
+          <Property Name="printing_cost" Type="decimal" />
+        </EntityType>
+        <EntityType Name="inventory_book_authors">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="individual_id" Type="int" />
+        </EntityType>
+        <EntityType Name="inventory_book_deposit_return">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="sale_id" Type="int" />
+          <Property Name="date" Type="date" />
+        </EntityType>
+        <EntityType Name="inventory_book_distributor_return">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="sale_id" Type="int" />
+          <Property Name="date" Type="date" />
+        </EntityType>
+        <EntityType Name="inventory_book_illustrators">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="individual_id" Type="int" />
+        </EntityType>
+        <EntityType Name="inventory_book_photographers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="individual_id" Type="int" />
+        </EntityType>
+        <EntityType Name="inventory_book_return">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="customer_id" Type="int" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="comments" Type="text" />
+          <Property Name="date" Type="date" />
+        </EntityType>
+        <EntityType Name="inventory_city">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="inventory_collection">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="name_kh" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="collection_type_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inventory_collection_target_readers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="collection_id" Type="int" Nullable="false" />
+          <Property Name="target_readers_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inventory_collection_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="inventory_contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="creation_date" Type="date" />
+          <Property Name="customer_id" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="note" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="inventory_customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="key_commercial" Type="bit" />
+          <Property Name="last_contact" Type="date" />
+          <Property Name="account_creation" Type="date" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="200" />
+          <Property Name="type_id" Type="int" />
+          <Property Name="address" Type="varchar" MaxLength="500" />
+          <Property Name="telephone" Type="varchar" MaxLength="100" />
+          <Property Name="fax" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="notes" Type="varchar" MaxLength="500" />
+          <Property Name="authorize_sale_type" Type="int" />
+          <Property Name="active" Type="bit" />
+          <Property Name="website" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="inventory_customer_activity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="customer_id" Type="int" />
+          <Property Name="activity_id" Type="int" />
+        </EntityType>
+        <EntityType Name="inventory_customer_city">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="city_id" Type="int" />
+          <Property Name="customer_id" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="inventory_customer_contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="customer_id" Type="int" />
+          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="fax" Type="varchar" MaxLength="100" />
+          <Property Name="gender" Type="varchar" MaxLength="6" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="200" />
+          <Property Name="position" Type="varchar" MaxLength="200" />
+          <Property Name="telephone" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="inventory_customer_tag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="customer_id" Type="int" />
+          <Property Name="customer_tags_id" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="inventory_customer_tags">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="500" />
+          <Property Name="parent_id" Type="int" />
+        </EntityType>
+        <EntityType Name="inventory_customer_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="inventory_discount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="collection_id" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="percentage" Type="int" />
+          <Property Name="sale_type" Type="int" />
+        </EntityType>
+        <EntityType Name="inventory_discount_customer_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="customer_type_id" Type="int" />
+          <Property Name="discount_id" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="inventory_dollarrielrate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="rate" Type="decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inventory_edition">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="edition_number" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="print_date" Type="date" />
+          <Property Name="printing_cost" Type="decimal" />
+        </EntityType>
+        <EntityType Name="inventory_filtersave">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="account_creation" Type="varchar" MaxLength="10" />
+          <Property Name="city" Type="varchar" MaxLength="20" />
+          <Property Name="commercial_qualification" Type="varchar" MaxLength="20" />
+          <Property Name="customer_type" Type="varchar" MaxLength="20" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="is_dashboard" Type="bit" />
+          <Property Name="last_contact" Type="varchar" MaxLength="10" />
+          <Property Name="last_sale" Type="varchar" MaxLength="10" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="sale_volume" Type="varchar" MaxLength="10" />
+          <Property Name="tag" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="inventory_individual">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="address" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="telephone" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="email" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="is_author" Type="bit" Nullable="false" />
+          <Property Name="is_photographer" Type="bit" Nullable="false" />
+          <Property Name="is_illustrator" Type="bit" Nullable="false" />
+          <Property Name="is_translator" Type="bit" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="sex" Type="varchar" Nullable="false" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="inventory_original_publisher">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'narak_sbim.dbo.inventory_permission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="inventory_permission">
+          <Key>
+            <PropertyRef Name="level_id" />
+          </Key>
+          <Property Name="level_id" Type="int" Nullable="false" />
+          <Property Name="permission_id" Type="int" />
+          <Property Name="permission_name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="inventory_sale">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="customer_id" Type="int" />
+          <Property Name="date_open" Type="date" />
+          <Property Name="date_concluded" Type="date" />
+          <Property Name="type" Type="int" />
+          <Property Name="status" Type="int" />
+          <Property Name="total" Type="decimal" />
+          <Property Name="notes" Type="text" />
+        </EntityType>
+        <EntityType Name="inventory_stock_adjustment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="notes" Type="text" />
+          <Property Name="date" Type="date" />
+        </EntityType>
+        <EntityType Name="inventory_target_readers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="inventory_unitary_sale">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="unit_price" Type="decimal" />
+          <Property Name="sale_id" Type="int" />
+        </EntityType>
+        <EntityType Name="inventory_user_level">
+          <Key>
+            <PropertyRef Name="level_id" />
+          </Key>
+          <Property Name="level_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="level_caption" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="inventory_user_profile">
+          <Key>
+            <PropertyRef Name="pro_id" />
+          </Key>
+          <Property Name="pro_id" Type="int" Nullable="false" />
+          <Property Name="fname" Type="varchar" MaxLength="50" />
+          <Property Name="lname" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="dob" Type="date" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="250" />
+          <Property Name="tel" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="inventory_users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="varchar" Nullable="false" MaxLength="70" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="level_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="bit" Nullable="false" />
+          <Property Name="created_date" Type="date" Nullable="false" />
+          <Property Name="updated_date" Type="date" Nullable="false" />
+          <Property Name="created_user" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="updated_user" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_inventory_book_authors_inventory_book">
+          <End Role="inventory_book" Type="SBIMModel.Store.inventory_book" Multiplicity="0..1" />
+          <End Role="inventory_book_authors" Type="SBIMModel.Store.inventory_book_authors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_authors">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_book_deposit_return_inventory_sale">
+          <End Role="inventory_sale" Type="SBIMModel.Store.inventory_sale" Multiplicity="0..1" />
+          <End Role="inventory_book_deposit_return" Type="SBIMModel.Store.inventory_book_deposit_return" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_sale">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_deposit_return">
+              <PropertyRef Name="sale_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_book_distributor_return_inventory_sale">
+          <End Role="inventory_sale" Type="SBIMModel.Store.inventory_sale" Multiplicity="0..1" />
+          <End Role="inventory_book_distributor_return" Type="SBIMModel.Store.inventory_book_distributor_return" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_sale">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_distributor_return">
+              <PropertyRef Name="sale_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_book_illustrators_inventory_book">
+          <End Role="inventory_book" Type="SBIMModel.Store.inventory_book" Multiplicity="0..1" />
+          <End Role="inventory_book_illustrators" Type="SBIMModel.Store.inventory_book_illustrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_illustrators">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_book_photographers_inventory_book">
+          <End Role="inventory_book" Type="SBIMModel.Store.inventory_book" Multiplicity="0..1" />
+          <End Role="inventory_book_photographers" Type="SBIMModel.Store.inventory_book_photographers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_photographers">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_book_return_customer">
+          <End Role="inventory_customer" Type="SBIMModel.Store.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_book_return" Type="SBIMModel.Store.inventory_book_return" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_return">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_contact_inventory_customer">
+          <End Role="inventory_customer" Type="SBIMModel.Store.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_contact" Type="SBIMModel.Store.inventory_contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_contact">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_customer_activity">
+          <End Role="inventory_customer" Type="SBIMModel.Store.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_customer_activity" Type="SBIMModel.Store.inventory_customer_activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_customer_activity">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_customer_city_inventory_customer">
+          <End Role="inventory_customer" Type="SBIMModel.Store.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_customer_city" Type="SBIMModel.Store.inventory_customer_city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_customer_city">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_customer_contact">
+          <End Role="inventory_customer" Type="SBIMModel.Store.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_customer_contact" Type="SBIMModel.Store.inventory_customer_contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_customer_contact">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_customer_tag_inventory_customer">
+          <End Role="inventory_customer" Type="SBIMModel.Store.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_customer_tag" Type="SBIMModel.Store.inventory_customer_tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_customer_tag">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_edition_inventory_book">
+          <End Role="inventory_book" Type="SBIMModel.Store.inventory_book" Multiplicity="0..1" />
+          <End Role="inventory_edition" Type="SBIMModel.Store.inventory_edition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_edition">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_permission_user_level">
+          <End Role="inventory_user_level" Type="SBIMModel.Store.inventory_user_level" Multiplicity="1" />
+          <End Role="inventory_permission" Type="SBIMModel.Store.inventory_permission" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_user_level">
+              <PropertyRef Name="level_id" />
+            </Principal>
+            <Dependent Role="inventory_permission">
+              <PropertyRef Name="level_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_sale_customer">
+          <End Role="inventory_customer" Type="SBIMModel.Store.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_sale" Type="SBIMModel.Store.inventory_sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_sale">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_stock_adjustment_inventory_book">
+          <End Role="inventory_book" Type="SBIMModel.Store.inventory_book" Multiplicity="0..1" />
+          <End Role="inventory_stock_adjustment" Type="SBIMModel.Store.inventory_stock_adjustment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_stock_adjustment">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_unitary_sale_">
+          <End Role="inventory_sale" Type="SBIMModel.Store.inventory_sale" Multiplicity="0..1" />
+          <End Role="inventory_unitary_sale" Type="SBIMModel.Store.inventory_unitary_sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_sale">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_unitary_sale">
+              <PropertyRef Name="sale_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_user_profile">
+          <End Role="inventory_users" Type="SBIMModel.Store.inventory_users" Multiplicity="1" />
+          <End Role="inventory_user_profile" Type="SBIMModel.Store.inventory_user_profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="inventory_user_profile">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SBIMModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SBIMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="inventory_activity" EntityType="SBIMModel.inventory_activity" />
+          <EntitySet Name="inventory_book" EntityType="SBIMModel.inventory_book" />
+          <EntitySet Name="inventory_book_authors" EntityType="SBIMModel.inventory_book_authors" />
+          <EntitySet Name="inventory_book_deposit_return" EntityType="SBIMModel.inventory_book_deposit_return" />
+          <EntitySet Name="inventory_book_distributor_return" EntityType="SBIMModel.inventory_book_distributor_return" />
+          <EntitySet Name="inventory_book_illustrators" EntityType="SBIMModel.inventory_book_illustrators" />
+          <EntitySet Name="inventory_book_photographers" EntityType="SBIMModel.inventory_book_photographers" />
+          <EntitySet Name="inventory_book_return" EntityType="SBIMModel.inventory_book_return" />
+          <EntitySet Name="inventory_city" EntityType="SBIMModel.inventory_city" />
+          <EntitySet Name="inventory_collection" EntityType="SBIMModel.inventory_collection" />
+          <EntitySet Name="inventory_collection_target_readers" EntityType="SBIMModel.inventory_collection_target_readers" />
+          <EntitySet Name="inventory_collection_type" EntityType="SBIMModel.inventory_collection_type" />
+          <EntitySet Name="inventory_contact" EntityType="SBIMModel.inventory_contact" />
+          <EntitySet Name="inventory_customer" EntityType="SBIMModel.inventory_customer" />
+          <EntitySet Name="inventory_customer_activity" EntityType="SBIMModel.inventory_customer_activity" />
+          <EntitySet Name="inventory_customer_city" EntityType="SBIMModel.inventory_customer_city" />
+          <EntitySet Name="inventory_customer_contact" EntityType="SBIMModel.inventory_customer_contact" />
+          <EntitySet Name="inventory_customer_tag" EntityType="SBIMModel.inventory_customer_tag" />
+          <EntitySet Name="inventory_customer_tags" EntityType="SBIMModel.inventory_customer_tags" />
+          <EntitySet Name="inventory_customer_type" EntityType="SBIMModel.inventory_customer_type" />
+          <EntitySet Name="inventory_discount" EntityType="SBIMModel.inventory_discount" />
+          <EntitySet Name="inventory_discount_customer_type" EntityType="SBIMModel.inventory_discount_customer_type" />
+          <EntitySet Name="inventory_dollarrielrate" EntityType="SBIMModel.inventory_dollarrielrate" />
+          <EntitySet Name="inventory_edition" EntityType="SBIMModel.inventory_edition" />
+          <EntitySet Name="inventory_filtersave" EntityType="SBIMModel.inventory_filtersave" />
+          <EntitySet Name="inventory_individual" EntityType="SBIMModel.inventory_individual" />
+          <EntitySet Name="inventory_original_publisher" EntityType="SBIMModel.inventory_original_publisher" />
+          <EntitySet Name="inventory_permission" EntityType="SBIMModel.inventory_permission" />
+          <EntitySet Name="inventory_sale" EntityType="SBIMModel.inventory_sale" />
+          <EntitySet Name="inventory_stock_adjustment" EntityType="SBIMModel.inventory_stock_adjustment" />
+          <EntitySet Name="inventory_target_readers" EntityType="SBIMModel.inventory_target_readers" />
+          <EntitySet Name="inventory_unitary_sale" EntityType="SBIMModel.inventory_unitary_sale" />
+          <EntitySet Name="inventory_user_level" EntityType="SBIMModel.inventory_user_level" />
+          <EntitySet Name="inventory_user_profile" EntityType="SBIMModel.inventory_user_profile" />
+          <EntitySet Name="inventory_users" EntityType="SBIMModel.inventory_users" />
+          <EntitySet Name="sysdiagrams" EntityType="SBIMModel.sysdiagram" />
+          <AssociationSet Name="FK_inventory_book_authors_inventory_book" Association="SBIMModel.FK_inventory_book_authors_inventory_book">
+            <End Role="inventory_book" EntitySet="inventory_book" />
+            <End Role="inventory_book_authors" EntitySet="inventory_book_authors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_book_illustrators_inventory_book" Association="SBIMModel.FK_inventory_book_illustrators_inventory_book">
+            <End Role="inventory_book" EntitySet="inventory_book" />
+            <End Role="inventory_book_illustrators" EntitySet="inventory_book_illustrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_book_photographers_inventory_book" Association="SBIMModel.FK_inventory_book_photographers_inventory_book">
+            <End Role="inventory_book" EntitySet="inventory_book" />
+            <End Role="inventory_book_photographers" EntitySet="inventory_book_photographers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_edition_inventory_book" Association="SBIMModel.FK_inventory_edition_inventory_book">
+            <End Role="inventory_book" EntitySet="inventory_book" />
+            <End Role="inventory_edition" EntitySet="inventory_edition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_stock_adjustment_inventory_book" Association="SBIMModel.FK_inventory_stock_adjustment_inventory_book">
+            <End Role="inventory_book" EntitySet="inventory_book" />
+            <End Role="inventory_stock_adjustment" EntitySet="inventory_stock_adjustment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_book_deposit_return_inventory_sale" Association="SBIMModel.FK_inventory_book_deposit_return_inventory_sale">
+            <End Role="inventory_sale" EntitySet="inventory_sale" />
+            <End Role="inventory_book_deposit_return" EntitySet="inventory_book_deposit_return" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_book_distributor_return_inventory_sale" Association="SBIMModel.FK_inventory_book_distributor_return_inventory_sale">
+            <End Role="inventory_sale" EntitySet="inventory_sale" />
+            <End Role="inventory_book_distributor_return" EntitySet="inventory_book_distributor_return" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_book_return_customer" Association="SBIMModel.FK_inventory_book_return_customer">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_book_return" EntitySet="inventory_book_return" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_contact_inventory_customer" Association="SBIMModel.FK_inventory_contact_inventory_customer">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_contact" EntitySet="inventory_contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_customer_activity" Association="SBIMModel.FK_inventory_customer_activity">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_customer_activity" EntitySet="inventory_customer_activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_customer_city_inventory_customer" Association="SBIMModel.FK_inventory_customer_city_inventory_customer">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_customer_city" EntitySet="inventory_customer_city" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_customer_contact" Association="SBIMModel.FK_inventory_customer_contact">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_customer_contact" EntitySet="inventory_customer_contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_customer_tag_inventory_customer" Association="SBIMModel.FK_inventory_customer_tag_inventory_customer">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_customer_tag" EntitySet="inventory_customer_tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_sale_customer" Association="SBIMModel.FK_inventory_sale_customer">
+            <End Role="inventory_customer" EntitySet="inventory_customer" />
+            <End Role="inventory_sale" EntitySet="inventory_sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_permission_user_level" Association="SBIMModel.FK_inventory_permission_user_level">
+            <End Role="inventory_user_level" EntitySet="inventory_user_level" />
+            <End Role="inventory_permission" EntitySet="inventory_permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_unitary_sale_" Association="SBIMModel.FK_inventory_unitary_sale_">
+            <End Role="inventory_sale" EntitySet="inventory_sale" />
+            <End Role="inventory_unitary_sale" EntitySet="inventory_unitary_sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inventory_user_profile" Association="SBIMModel.FK_inventory_user_profile">
+            <End Role="inventory_users" EntitySet="inventory_users" />
+            <End Role="inventory_user_profile" EntitySet="inventory_user_profile" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="inventory_activity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="inventory_book">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="book_stock_alert" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reference" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="title" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="title_kh" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="collection_id" Type="Int32" />
+          <Property Name="public_price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="original_publisher_id" Type="Int32" />
+          <Property Name="printing_cost" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="inventory_book_authors" Relationship="SBIMModel.FK_inventory_book_authors_inventory_book" FromRole="inventory_book" ToRole="inventory_book_authors" />
+          <NavigationProperty Name="inventory_book_illustrators" Relationship="SBIMModel.FK_inventory_book_illustrators_inventory_book" FromRole="inventory_book" ToRole="inventory_book_illustrators" />
+          <NavigationProperty Name="inventory_book_photographers" Relationship="SBIMModel.FK_inventory_book_photographers_inventory_book" FromRole="inventory_book" ToRole="inventory_book_photographers" />
+          <NavigationProperty Name="inventory_edition" Relationship="SBIMModel.FK_inventory_edition_inventory_book" FromRole="inventory_book" ToRole="inventory_edition" />
+          <NavigationProperty Name="inventory_stock_adjustment" Relationship="SBIMModel.FK_inventory_stock_adjustment_inventory_book" FromRole="inventory_book" ToRole="inventory_stock_adjustment" />
+        </EntityType>
+        <EntityType Name="inventory_book_authors">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="individual_id" Type="Int32" />
+          <NavigationProperty Name="inventory_book" Relationship="SBIMModel.FK_inventory_book_authors_inventory_book" FromRole="inventory_book_authors" ToRole="inventory_book" />
+        </EntityType>
+        <EntityType Name="inventory_book_deposit_return">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="sale_id" Type="Int32" />
+          <Property Name="date" Type="DateTime" />
+          <NavigationProperty Name="inventory_sale" Relationship="SBIMModel.FK_inventory_book_deposit_return_inventory_sale" FromRole="inventory_book_deposit_return" ToRole="inventory_sale" />
+        </EntityType>
+        <EntityType Name="inventory_book_distributor_return">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="sale_id" Type="Int32" />
+          <Property Name="date" Type="DateTime" />
+          <NavigationProperty Name="inventory_sale" Relationship="SBIMModel.FK_inventory_book_distributor_return_inventory_sale" FromRole="inventory_book_distributor_return" ToRole="inventory_sale" />
+        </EntityType>
+        <EntityType Name="inventory_book_illustrators">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="individual_id" Type="Int32" />
+          <NavigationProperty Name="inventory_book" Relationship="SBIMModel.FK_inventory_book_illustrators_inventory_book" FromRole="inventory_book_illustrators" ToRole="inventory_book" />
+        </EntityType>
+        <EntityType Name="inventory_book_photographers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="individual_id" Type="Int32" />
+          <NavigationProperty Name="inventory_book" Relationship="SBIMModel.FK_inventory_book_photographers_inventory_book" FromRole="inventory_book_photographers" ToRole="inventory_book" />
+        </EntityType>
+        <EntityType Name="inventory_book_return">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="comments" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="date" Type="DateTime" />
+          <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_book_return_customer" FromRole="inventory_book_return" ToRole="inventory_customer" />
+        </EntityType>
+        <EntityType Name="inventory_city">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="inventory_collection">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="name_kh" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="collection_type_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inventory_collection_target_readers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="collection_id" Type="Int32" Nullable="false" />
+          <Property Name="target_readers_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inventory_collection_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="inventory_contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="creation_date" Type="DateTime" />
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="note" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_contact_inventory_customer" FromRole="inventory_contact" ToRole="inventory_customer" />
+        </EntityType>
+        <EntityType Name="inventory_customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="key_commercial" Type="Boolean" />
+          <Property Name="last_contact" Type="DateTime" />
+          <Property Name="account_creation" Type="DateTime" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="type_id" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="telephone" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="fax" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="notes" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="authorize_sale_type" Type="Int32" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="website" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="inventory_book_return" Relationship="SBIMModel.FK_inventory_book_return_customer" FromRole="inventory_customer" ToRole="inventory_book_return" />
+          <NavigationProperty Name="inventory_contact" Relationship="SBIMModel.FK_inventory_contact_inventory_customer" FromRole="inventory_customer" ToRole="inventory_contact" />
+          <NavigationProperty Name="inventory_customer_activity" Relationship="SBIMModel.FK_inventory_customer_activity" FromRole="inventory_customer" ToRole="inventory_customer_activity" />
+          <NavigationProperty Name="inventory_customer_city" Relationship="SBIMModel.FK_inventory_customer_city_inventory_customer" FromRole="inventory_customer" ToRole="inventory_customer_city" />
+          <NavigationProperty Name="inventory_customer_contact" Relationship="SBIMModel.FK_inventory_customer_contact" FromRole="inventory_customer" ToRole="inventory_customer_contact" />
+          <NavigationProperty Name="inventory_customer_tag" Relationship="SBIMModel.FK_inventory_customer_tag_inventory_customer" FromRole="inventory_customer" ToRole="inventory_customer_tag" />
+          <NavigationProperty Name="inventory_sale" Relationship="SBIMModel.FK_inventory_sale_customer" FromRole="inventory_customer" ToRole="inventory_sale" />
+        </EntityType>
+        <EntityType Name="inventory_customer_activity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="activity_id" Type="Int32" />
+          <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_customer_activity" FromRole="inventory_customer_activity" ToRole="inventory_customer" />
+        </EntityType>
+        <EntityType Name="inventory_customer_city">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="city_id" Type="Int32" />
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_customer_city_inventory_customer" FromRole="inventory_customer_city" ToRole="inventory_customer" />
+        </EntityType>
+        <EntityType Name="inventory_customer_contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="email" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="fax" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="gender" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="position" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="telephone" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_customer_contact" FromRole="inventory_customer_contact" ToRole="inventory_customer" />
+        </EntityType>
+        <EntityType Name="inventory_customer_tag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="customer_tags_id" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_customer_tag_inventory_customer" FromRole="inventory_customer_tag" ToRole="inventory_customer" />
+        </EntityType>
+        <EntityType Name="inventory_customer_tags">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="parent_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="inventory_customer_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="inventory_discount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="collection_id" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="percentage" Type="Int32" />
+          <Property Name="sale_type" Type="Int32" />
+        </EntityType>
+        <EntityType Name="inventory_discount_customer_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="customer_type_id" Type="Int32" />
+          <Property Name="discount_id" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="inventory_dollarrielrate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rate" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="inventory_edition">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="edition_number" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="print_date" Type="DateTime" />
+          <Property Name="printing_cost" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="inventory_book" Relationship="SBIMModel.FK_inventory_edition_inventory_book" FromRole="inventory_edition" ToRole="inventory_book" />
+        </EntityType>
+        <EntityType Name="inventory_filtersave">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="account_creation" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="city" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="commercial_qualification" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="customer_type" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="is_dashboard" Type="Boolean" />
+          <Property Name="last_contact" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="last_sale" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="sale_volume" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="tag" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="inventory_individual">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="telephone" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="is_author" Type="Boolean" Nullable="false" />
+          <Property Name="is_photographer" Type="Boolean" Nullable="false" />
+          <Property Name="is_illustrator" Type="Boolean" Nullable="false" />
+          <Property Name="is_translator" Type="Boolean" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="sex" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="inventory_original_publisher">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="inventory_permission">
+          <Key>
+            <PropertyRef Name="level_id" />
+          </Key>
+          <Property Name="level_id" Type="Int32" Nullable="false" />
+          <Property Name="permission_id" Type="Int32" />
+          <Property Name="permission_name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="inventory_user_level" Relationship="SBIMModel.FK_inventory_permission_user_level" FromRole="inventory_permission" ToRole="inventory_user_level" />
+        </EntityType>
+        <EntityType Name="inventory_sale">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="date_open" Type="DateTime" />
+          <Property Name="date_concluded" Type="DateTime" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="total" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="notes" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="inventory_book_deposit_return" Relationship="SBIMModel.FK_inventory_book_deposit_return_inventory_sale" FromRole="inventory_sale" ToRole="inventory_book_deposit_return" />
+          <NavigationProperty Name="inventory_book_distributor_return" Relationship="SBIMModel.FK_inventory_book_distributor_return_inventory_sale" FromRole="inventory_sale" ToRole="inventory_book_distributor_return" />
+          <NavigationProperty Name="inventory_customer" Relationship="SBIMModel.FK_inventory_sale_customer" FromRole="inventory_sale" ToRole="inventory_customer" />
+          <NavigationProperty Name="inventory_unitary_sale" Relationship="SBIMModel.FK_inventory_unitary_sale_" FromRole="inventory_sale" ToRole="inventory_unitary_sale" />
+        </EntityType>
+        <EntityType Name="inventory_stock_adjustment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="notes" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="date" Type="DateTime" />
+          <NavigationProperty Name="inventory_book" Relationship="SBIMModel.FK_inventory_stock_adjustment_inventory_book" FromRole="inventory_stock_adjustment" ToRole="inventory_book" />
+        </EntityType>
+        <EntityType Name="inventory_target_readers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="inventory_unitary_sale">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="unit_price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="sale_id" Type="Int32" />
+          <NavigationProperty Name="inventory_sale" Relationship="SBIMModel.FK_inventory_unitary_sale_" FromRole="inventory_unitary_sale" ToRole="inventory_sale" />
+        </EntityType>
+        <EntityType Name="inventory_user_level">
+          <Key>
+            <PropertyRef Name="level_id" />
+          </Key>
+          <Property Name="level_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="level_caption" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="inventory_permission" Relationship="SBIMModel.FK_inventory_permission_user_level" FromRole="inventory_user_level" ToRole="inventory_permission" />
+        </EntityType>
+        <EntityType Name="inventory_user_profile">
+          <Key>
+            <PropertyRef Name="pro_id" />
+          </Key>
+          <Property Name="pro_id" Type="Int32" Nullable="false" />
+          <Property Name="fname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="lname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="dob" Type="DateTime" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="tel" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="inventory_users" Relationship="SBIMModel.FK_inventory_user_profile" FromRole="inventory_user_profile" ToRole="inventory_users" />
+        </EntityType>
+        <EntityType Name="inventory_users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" Nullable="false" MaxLength="70" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="level_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Boolean" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" />
+          <Property Name="updated_date" Type="DateTime" Nullable="false" />
+          <Property Name="created_user" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="updated_user" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="inventory_user_profile" Relationship="SBIMModel.FK_inventory_user_profile" FromRole="inventory_users" ToRole="inventory_user_profile" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_inventory_book_authors_inventory_book">
+          <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="0..1" />
+          <End Role="inventory_book_authors" Type="SBIMModel.inventory_book_authors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_authors">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_book_illustrators_inventory_book">
+          <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="0..1" />
+          <End Role="inventory_book_illustrators" Type="SBIMModel.inventory_book_illustrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_illustrators">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_book_photographers_inventory_book">
+          <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="0..1" />
+          <End Role="inventory_book_photographers" Type="SBIMModel.inventory_book_photographers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_photographers">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_edition_inventory_book">
+          <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="0..1" />
+          <End Role="inventory_edition" Type="SBIMModel.inventory_edition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_edition">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_stock_adjustment_inventory_book">
+          <End Role="inventory_book" Type="SBIMModel.inventory_book" Multiplicity="0..1" />
+          <End Role="inventory_stock_adjustment" Type="SBIMModel.inventory_stock_adjustment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_book">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_stock_adjustment">
+              <PropertyRef Name="book_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_book_deposit_return_inventory_sale">
+          <End Role="inventory_sale" Type="SBIMModel.inventory_sale" Multiplicity="0..1" />
+          <End Role="inventory_book_deposit_return" Type="SBIMModel.inventory_book_deposit_return" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_sale">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_deposit_return">
+              <PropertyRef Name="sale_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_book_distributor_return_inventory_sale">
+          <End Role="inventory_sale" Type="SBIMModel.inventory_sale" Multiplicity="0..1" />
+          <End Role="inventory_book_distributor_return" Type="SBIMModel.inventory_book_distributor_return" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_sale">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_distributor_return">
+              <PropertyRef Name="sale_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_book_return_customer">
+          <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_book_return" Type="SBIMModel.inventory_book_return" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_book_return">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_contact_inventory_customer">
+          <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_contact" Type="SBIMModel.inventory_contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_contact">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_customer_activity">
+          <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_customer_activity" Type="SBIMModel.inventory_customer_activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_customer_activity">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_customer_city_inventory_customer">
+          <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_customer_city" Type="SBIMModel.inventory_customer_city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_customer_city">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_customer_contact">
+          <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_customer_contact" Type="SBIMModel.inventory_customer_contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_customer_contact">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_customer_tag_inventory_customer">
+          <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_customer_tag" Type="SBIMModel.inventory_customer_tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_customer_tag">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_sale_customer">
+          <End Role="inventory_customer" Type="SBIMModel.inventory_customer" Multiplicity="0..1" />
+          <End Role="inventory_sale" Type="SBIMModel.inventory_sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_sale">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_permission_user_level">
+          <End Role="inventory_user_level" Type="SBIMModel.inventory_user_level" Multiplicity="1" />
+          <End Role="inventory_permission" Type="SBIMModel.inventory_permission" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_user_level">
+              <PropertyRef Name="level_id" />
+            </Principal>
+            <Dependent Role="inventory_permission">
+              <PropertyRef Name="level_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_unitary_sale_">
+          <End Role="inventory_sale" Type="SBIMModel.inventory_sale" Multiplicity="0..1" />
+          <End Role="inventory_unitary_sale" Type="SBIMModel.inventory_unitary_sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_sale">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="inventory_unitary_sale">
+              <PropertyRef Name="sale_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inventory_user_profile">
+          <End Role="inventory_users" Type="SBIMModel.inventory_users" Multiplicity="1" />
+          <End Role="inventory_user_profile" Type="SBIMModel.inventory_user_profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="inventory_users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="inventory_user_profile">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SBIMModelStoreContainer" CdmEntityContainer="SBIMEntities">
+          <EntitySetMapping Name="inventory_activity"><EntityTypeMapping TypeName="SBIMModel.inventory_activity"><MappingFragment StoreEntitySet="inventory_activity">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_book"><EntityTypeMapping TypeName="SBIMModel.inventory_book"><MappingFragment StoreEntitySet="inventory_book">
+            <ScalarProperty Name="book_stock_alert" ColumnName="book_stock_alert" />
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="reference" ColumnName="reference" />
+            <ScalarProperty Name="title" ColumnName="title" />
+            <ScalarProperty Name="title_kh" ColumnName="title_kh" />
+            <ScalarProperty Name="collection_id" ColumnName="collection_id" />
+            <ScalarProperty Name="public_price" ColumnName="public_price" />
+            <ScalarProperty Name="original_publisher_id" ColumnName="original_publisher_id" />
+            <ScalarProperty Name="printing_cost" ColumnName="printing_cost" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_book_authors"><EntityTypeMapping TypeName="SBIMModel.inventory_book_authors"><MappingFragment StoreEntitySet="inventory_book_authors">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="book_id" ColumnName="book_id" />
+            <ScalarProperty Name="individual_id" ColumnName="individual_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_book_deposit_return"><EntityTypeMapping TypeName="SBIMModel.inventory_book_deposit_return"><MappingFragment StoreEntitySet="inventory_book_deposit_return">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="book_id" ColumnName="book_id" />
+            <ScalarProperty Name="quantity" ColumnName="quantity" />
+            <ScalarProperty Name="sale_id" ColumnName="sale_id" />
+            <ScalarProperty Name="date" ColumnName="date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_book_distributor_return"><EntityTypeMapping TypeName="SBIMModel.inventory_book_distributor_return"><MappingFragment StoreEntitySet="inventory_book_distributor_return">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="book_id" ColumnName="book_id" />
+            <ScalarProperty Name="quantity" ColumnName="quantity" />
+            <ScalarProperty Name="sale_id" ColumnName="sale_id" />
+            <ScalarProperty Name="date" ColumnName="date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_book_illustrators"><EntityTypeMapping TypeName="SBIMModel.inventory_book_illustrators"><MappingFragment StoreEntitySet="inventory_book_illustrators">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="book_id" ColumnName="book_id" />
+            <ScalarProperty Name="individual_id" ColumnName="individual_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_book_photographers"><EntityTypeMapping TypeName="SBIMModel.inventory_book_photographers"><MappingFragment StoreEntitySet="inventory_book_photographers">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="book_id" ColumnName="book_id" />
+            <ScalarProperty Name="individual_id" ColumnName="individual_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_book_return"><EntityTypeMapping TypeName="SBIMModel.inventory_book_return"><MappingFragment StoreEntitySet="inventory_book_return">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+            <ScalarProperty Name="book_id" ColumnName="book_id" />
+            <ScalarProperty Name="quantity" ColumnName="quantity" />
+            <ScalarProperty Name="comments" ColumnName="comments" />
+            <ScalarProperty Name="date" ColumnName="date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_city"><EntityTypeMapping TypeName="SBIMModel.inventory_city"><MappingFragment StoreEntitySet="inventory_city">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_collection"><EntityTypeMapping TypeName="SBIMModel.inventory_collection"><MappingFragment StoreEntitySet="inventory_collection">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="name_kh" ColumnName="name_kh" />
+            <ScalarProperty Name="collection_type_id" ColumnName="collection_type_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_collection_target_readers"><EntityTypeMapping TypeName="SBIMModel.inventory_collection_target_readers"><MappingFragment StoreEntitySet="inventory_collection_target_readers">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="collection_id" ColumnName="collection_id" />
+            <ScalarProperty Name="target_readers_id" ColumnName="target_readers_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_collection_type"><EntityTypeMapping TypeName="SBIMModel.inventory_collection_type"><MappingFragment StoreEntitySet="inventory_collection_type">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_contact"><EntityTypeMapping TypeName="SBIMModel.inventory_contact"><MappingFragment StoreEntitySet="inventory_contact">
+            <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="note" ColumnName="note" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_customer"><EntityTypeMapping TypeName="SBIMModel.inventory_customer"><MappingFragment StoreEntitySet="inventory_customer">
+            <ScalarProperty Name="key_commercial" ColumnName="key_commercial" />
+            <ScalarProperty Name="last_contact" ColumnName="last_contact" />
+            <ScalarProperty Name="account_creation" ColumnName="account_creation" />
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="type_id" ColumnName="type_id" />
+            <ScalarProperty Name="address" ColumnName="address" />
+            <ScalarProperty Name="telephone" ColumnName="telephone" />
+            <ScalarProperty Name="fax" ColumnName="fax" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="notes" ColumnName="notes" />
+            <ScalarProperty Name="authorize_sale_type" ColumnName="authorize_sale_type" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="website" ColumnName="website" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_customer_activity"><EntityTypeMapping TypeName="SBIMModel.inventory_customer_activity"><MappingFragment StoreEntitySet="inventory_customer_activity">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+            <ScalarProperty Name="activity_id" ColumnName="activity_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_customer_city"><EntityTypeMapping TypeName="SBIMModel.inventory_customer_city"><MappingFragment StoreEntitySet="inventory_customer_city">
+            <ScalarProperty Name="city_id" ColumnName="city_id" />
+            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+            <ScalarProperty Name="id" ColumnName="id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_customer_contact"><EntityTypeMapping TypeName="SBIMModel.inventory_customer_contact"><MappingFragment StoreEntitySet="inventory_customer_contact">
+            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="fax" ColumnName="fax" />
+            <ScalarProperty Name="gender" ColumnName="gender" />
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="position" ColumnName="position" />
+            <ScalarProperty Name="telephone" ColumnName="telephone" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_customer_tag"><EntityTypeMapping TypeName="SBIMModel.inventory_customer_tag"><MappingFragment StoreEntitySet="inventory_customer_tag">
+            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+            <ScalarProperty Name="customer_tags_id" ColumnName="customer_tags_id" />
+            <ScalarProperty Name="id" ColumnName="id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_customer_tags"><EntityTypeMapping TypeName="SBIMModel.inventory_customer_tags"><MappingFragment StoreEntitySet="inventory_customer_tags">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_customer_type"><EntityTypeMapping TypeName="SBIMModel.inventory_customer_type"><MappingFragment StoreEntitySet="inventory_customer_type">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_discount"><EntityTypeMapping TypeName="SBIMModel.inventory_discount"><MappingFragment StoreEntitySet="inventory_discount">
+            <ScalarProperty Name="collection_id" ColumnName="collection_id" />
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="percentage" ColumnName="percentage" />
+            <ScalarProperty Name="sale_type" ColumnName="sale_type" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_discount_customer_type"><EntityTypeMapping TypeName="SBIMModel.inventory_discount_customer_type"><MappingFragment StoreEntitySet="inventory_discount_customer_type">
+            <ScalarProperty Name="customer_type_id" ColumnName="customer_type_id" />
+            <ScalarProperty Name="discount_id" ColumnName="discount_id" />
+            <ScalarProperty Name="id" ColumnName="id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_dollarrielrate"><EntityTypeMapping TypeName="SBIMModel.inventory_dollarrielrate"><MappingFragment StoreEntitySet="inventory_dollarrielrate">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="rate" ColumnName="rate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_edition"><EntityTypeMapping TypeName="SBIMModel.inventory_edition"><MappingFragment StoreEntitySet="inventory_edition">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="book_id" ColumnName="book_id" />
+            <ScalarProperty Name="edition_number" ColumnName="edition_number" />
+            <ScalarProperty Name="quantity" ColumnName="quantity" />
+            <ScalarProperty Name="print_date" ColumnName="print_date" />
+            <ScalarProperty Name="printing_cost" ColumnName="printing_cost" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_filtersave"><EntityTypeMapping TypeName="SBIMModel.inventory_filtersave"><MappingFragment StoreEntitySet="inventory_filtersave">
+            <ScalarProperty Name="account_creation" ColumnName="account_creation" />
+            <ScalarProperty Name="city" ColumnName="city" />
+            <ScalarProperty Name="commercial_qualification" ColumnName="commercial_qualification" />
+            <ScalarProperty Name="customer_type" ColumnName="customer_type" />
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="is_dashboard" ColumnName="is_dashboard" />
+            <ScalarProperty Name="last_contact" ColumnName="last_contact" />
+            <ScalarProperty Name="last_sale" ColumnName="last_sale" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="sale_volume" ColumnName="sale_volume" />
+            <ScalarProperty Name="tag" ColumnName="tag" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_individual"><EntityTypeMapping TypeName="SBIMModel.inventory_individual"><MappingFragment StoreEntitySet="inventory_individual">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="address" ColumnName="address" />
+            <ScalarProperty Name="telephone" ColumnName="telephone" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="is_author" ColumnName="is_author" />
+            <ScalarProperty Name="is_photographer" ColumnName="is_photographer" />
+            <ScalarProperty Name="is_illustrator" ColumnName="is_illustrator" />
+            <ScalarProperty Name="is_translator" ColumnName="is_translator" />
+            <ScalarProperty Name="active" ColumnName="active" />
+            <ScalarProperty Name="sex" ColumnName="sex" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_original_publisher"><EntityTypeMapping TypeName="SBIMModel.inventory_original_publisher"><MappingFragment StoreEntitySet="inventory_original_publisher">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_permission"><EntityTypeMapping TypeName="SBIMModel.inventory_permission"><MappingFragment StoreEntitySet="inventory_permission">
+            <ScalarProperty Name="level_id" ColumnName="level_id" />
+            <ScalarProperty Name="permission_id" ColumnName="permission_id" />
+            <ScalarProperty Name="permission_name" ColumnName="permission_name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_sale"><EntityTypeMapping TypeName="SBIMModel.inventory_sale"><MappingFragment StoreEntitySet="inventory_sale">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+            <ScalarProperty Name="date_open" ColumnName="date_open" />
+            <ScalarProperty Name="date_concluded" ColumnName="date_concluded" />
+            <ScalarProperty Name="type" ColumnName="type" />
+            <ScalarProperty Name="status" ColumnName="status" />
+            <ScalarProperty Name="total" ColumnName="total" />
+            <ScalarProperty Name="notes" ColumnName="notes" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_stock_adjustment"><EntityTypeMapping TypeName="SBIMModel.inventory_stock_adjustment"><MappingFragment StoreEntitySet="inventory_stock_adjustment">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="book_id" ColumnName="book_id" />
+            <ScalarProperty Name="quantity" ColumnName="quantity" />
+            <ScalarProperty Name="notes" ColumnName="notes" />
+            <ScalarProperty Name="date" ColumnName="date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_target_readers"><EntityTypeMapping TypeName="SBIMModel.inventory_target_readers"><MappingFragment StoreEntitySet="inventory_target_readers">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_unitary_sale"><EntityTypeMapping TypeName="SBIMModel.inventory_unitary_sale"><MappingFragment StoreEntitySet="inventory_unitary_sale">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="book_id" ColumnName="book_id" />
+            <ScalarProperty Name="quantity" ColumnName="quantity" />
+            <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+            <ScalarProperty Name="sale_id" ColumnName="sale_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_user_level"><EntityTypeMapping TypeName="SBIMModel.inventory_user_level"><MappingFragment StoreEntitySet="inventory_user_level">
+            <ScalarProperty Name="level_id" ColumnName="level_id" />
+            <ScalarProperty Name="level_caption" ColumnName="level_caption" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_user_profile"><EntityTypeMapping TypeName="SBIMModel.inventory_user_profile"><MappingFragment StoreEntitySet="inventory_user_profile">
+            <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+            <ScalarProperty Name="fname" ColumnName="fname" />
+            <ScalarProperty Name="lname" ColumnName="lname" />
+            <ScalarProperty Name="gender" ColumnName="gender" />
+            <ScalarProperty Name="dob" ColumnName="dob" />
+            <ScalarProperty Name="address" ColumnName="address" />
+            <ScalarProperty Name="tel" ColumnName="tel" />
+            <ScalarProperty Name="email" ColumnName="email" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="inventory_users"><EntityTypeMapping TypeName="SBIMModel.inventory_users"><MappingFragment StoreEntitySet="inventory_users">
+            <ScalarProperty Name="user_id" ColumnName="user_id" />
+            <ScalarProperty Name="user_name" ColumnName="user_name" />
+            <ScalarProperty Name="password" ColumnName="password" />
+            <ScalarProperty Name="level_id" ColumnName="level_id" />
+            <ScalarProperty Name="status" ColumnName="status" />
+            <ScalarProperty Name="created_date" ColumnName="created_date" />
+            <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+            <ScalarProperty Name="created_user" ColumnName="created_user" />
+            <ScalarProperty Name="updated_user" ColumnName="updated_user" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="SBIMModel.sysdiagram"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SBIMModel">
+        <EntityTypeShape EntityType="SBIMModel.inventory_activity" Width="1.5" PointX="10.75" PointY="7.75" Height="1.4033821614583326" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book" Width="1.5" PointX="5.75" PointY="6.125" Height="3.7109993489583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_authors" Width="1.5" PointX="8" PointY="1.5" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_deposit_return" Width="1.5" PointX="5.25" PointY="19" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_distributor_return" Width="1.5" PointX="5.25" PointY="22" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_illustrators" Width="1.5" PointX="8" PointY="4" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_photographers" Width="1.5" PointX="8" PointY="6.5" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_book_return" Width="1.5" PointX="3" PointY="2.125" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_city" Width="1.5" PointX="10.75" PointY="10.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_collection" Width="1.5" PointX="12.75" PointY="7.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_collection_target_readers" Width="1.5" PointX="12.75" PointY="10.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_collection_type" Width="1.5" PointX="10.75" PointY="13.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_contact" Width="1.5" PointX="3" PointY="5.25" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer" Width="1.5" PointX="0.75" PointY="12" Height="5.0571093750000049" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_activity" Width="1.5" PointX="3" PointY="7.875" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_city" Width="1.5" PointX="3" PointY="10.5" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_contact" Width="1.5" PointX="3" PointY="13" Height="2.7494921875000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_tag" Width="1.5" PointX="3" PointY="16.5" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_tags" Width="1.5" PointX="12.75" PointY="13.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_customer_type" Width="1.5" PointX="14.75" PointY="7.75" Height="1.4033821614583388" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_discount" Width="1.5" PointX="14.75" PointY="10.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_discount_customer_type" Width="1.5" PointX="14.75" PointY="13.75" Height="1.5956835937500067" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_dollarrielrate" Width="1.5" PointX="15.75" PointY="0.75" Height="1.4033821614583246" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_edition" Width="1.5" PointX="8" PointY="9.125" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_filtersave" Width="1.5" PointX="15.75" PointY="3.75" Height="3.1340950520833246" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_individual" Width="1.5" PointX="7.75" PointY="15.75" Height="3.1340950520833246" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_original_publisher" Width="1.5" PointX="16.75" PointY="7.75" Height="1.4033821614583246" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_permission" Width="1.5" PointX="13" PointY="4.875" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_sale" Width="1.5" PointX="3" PointY="21.375" Height="3.326396484374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_stock_adjustment" Width="1.5" PointX="8" PointY="12.25" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_target_readers" Width="1.5" PointX="9.75" PointY="16.75" Height="1.4033821614583246" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_unitary_sale" Width="1.5" PointX="5.25" PointY="24.875" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_user_level" Width="1.5" PointX="10.75" PointY="5" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_user_profile" Width="1.5" PointX="13" PointY="1.125" Height="2.749492187499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.inventory_users" Width="1.5" PointX="10.75" PointY="1" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBIMModel.sysdiagram" Width="1.5" PointX="16.75" PointY="10.75" Height="1.9802864583333246" IsExpanded="true" />
+        <AssociationConnector Association="SBIMModel.FK_inventory_book_authors_inventory_book" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.5" PointY="6.125" />
+          <ConnectorPoint PointX="6.5" PointY="2.3939925130208333" />
+          <ConnectorPoint PointX="8" PointY="2.3939925130208333" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_book_illustrators_inventory_book" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.9062525" PointY="6.125" />
+          <ConnectorPoint PointX="6.9062525" PointY="4.8939925130208337" />
+          <ConnectorPoint PointX="8" PointY="4.8939925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_book_photographers_inventory_book" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="7.3939925130208337" />
+          <ConnectorPoint PointX="8" PointY="7.3939925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_edition_inventory_book" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="9.4804996744791659" />
+          <ConnectorPoint PointX="8" PointY="9.4804996744791659" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_stock_adjustment_inventory_book" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.5" PointY="9.8359993489583317" />
+          <ConnectorPoint PointX="6.5" PointY="13.336293945312498" />
+          <ConnectorPoint PointX="8" PointY="13.336293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_book_deposit_return_inventory_sale" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="21.375" />
+          <ConnectorPoint PointX="3.75" PointY="20.086293945312498" />
+          <ConnectorPoint PointX="5.25" PointY="20.086293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_book_distributor_return_inventory_sale" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="23.086293945312498" />
+          <ConnectorPoint PointX="5.25" PointY="23.086293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_book_return_customer" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="12" />
+          <ConnectorPoint PointX="1.5" PointY="3.3074446614583337" />
+          <ConnectorPoint PointX="3" PointY="3.3074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_contact_inventory_customer" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062525" PointY="12" />
+          <ConnectorPoint PointX="1.9062525" PointY="6.2401432291666694" />
+          <ConnectorPoint PointX="3" PointY="6.2401432291666694" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_customer_activity" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.0937475" PointY="12" />
+          <ConnectorPoint PointX="1.0937475" PointY="8.7689925130208337" />
+          <ConnectorPoint PointX="1.4166666666666667" PointY="8.7689925130208337" />
+          <ConnectorPoint PointX="1.5833333333333333" PointY="8.7689925130208337" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="8.7689925130208337" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="8.7689925130208337" />
+          <ConnectorPoint PointX="3" PointY="8.7689925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_customer_city_inventory_customer" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.10937875" PointY="12" />
+          <ConnectorPoint PointX="2.10937875" PointY="11.218747500000006" />
+          <ConnectorPoint PointX="3" PointY="11.218747500000006" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_customer_contact" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="14.374746093750002" />
+          <ConnectorPoint PointX="3" PointY="14.374746093750002" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_customer_tag_inventory_customer" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="16.7785546875" />
+          <ConnectorPoint PointX="3" PointY="16.7785546875" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_sale_customer" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="17.057109375000003" />
+          <ConnectorPoint PointX="1.5" PointY="23.038198242187498" />
+          <ConnectorPoint PointX="3" PointY="23.038198242187498" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_permission_user_level" ManuallyRouted="false">
+          <ConnectorPoint PointX="12.25" PointY="5.797841796874998" />
+          <ConnectorPoint PointX="13" PointY="5.797841796874998" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_unitary_sale_" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="24.701396484374996" />
+          <ConnectorPoint PointX="3.75" PointY="25.961293945312498" />
+          <ConnectorPoint PointX="5.25" PointY="25.961293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="SBIMModel.FK_inventory_user_profile" ManuallyRouted="false">
+          <ConnectorPoint PointX="12.25" PointY="2.499746093749998" />
+          <ConnectorPoint PointX="13" PointY="2.499746093749998" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
