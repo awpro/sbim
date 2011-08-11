@@ -68,7 +68,6 @@
             this.administratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.approvalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.currencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.discountFormulaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addUserLevelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -362,7 +361,6 @@
             this.administratorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.approvalToolStripMenuItem1,
             this.currencyToolStripMenuItem,
-            this.discountFormulaToolStripMenuItem,
             this.userManagementToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.cityToolStripMenuItem,
@@ -388,12 +386,6 @@
             this.currencyToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.currencyToolStripMenuItem.Text = "Currency";
             this.currencyToolStripMenuItem.Click += new System.EventHandler(this.currencyToolStripMenuItem_Click);
-            // 
-            // discountFormulaToolStripMenuItem
-            // 
-            this.discountFormulaToolStripMenuItem.Name = "discountFormulaToolStripMenuItem";
-            this.discountFormulaToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.discountFormulaToolStripMenuItem.Text = "Discount Formula";
             // 
             // userManagementToolStripMenuItem
             // 
@@ -688,7 +680,6 @@
         private System.Windows.Forms.ToolStripMenuItem administratorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem approvalToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem currencyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem discountFormulaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cityToolStripMenuItem;

@@ -433,46 +433,63 @@ namespace sbim
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             Boolean is_updated = false;
-            if (MessageBox.Show("Are you sure that you want to update?", "Update Book", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure that you want to update?", "Update Book", MessageBoxButtons.YesNo) == DialogResult.No)
             {
-                inventory_book_authors authors = new inventory_book_authors();
-                inventory_book_illustrators illustrators = new inventory_book_illustrators();
-                inventory_book_photographers photographers = new inventory_book_photographers();
+                return;
+            }
+            
+            Boolean ok = checkBook();
+            if (!ok)
+            {
+                return;
+            }
 
-                Boolean ok = checkBook();
-                if (ok)
+
+            inventory_book_authors authors = new inventory_book_authors();
+            inventory_book_illustrators illustrators = new inventory_book_illustrators();
+            inventory_book_photographers photographers = new inventory_book_photographers();
+
+            var ind = this.dgvBook.SelectedRows[0].Index;
+            int bookID = Convert.ToInt16(this.dgvBook.Rows[ind].Cells[0].Value);
+
+            inventory_book book = inventory.inventory_book.First(i => i.id == bookID);
+
+            var check_ref = inventory.inventory_book.Where(r => r.reference == this.txtReference.Text).SingleOrDefault();
+            if (check_ref != null)
+            {
+                if (check_ref.reference != book.reference)
                 {
-                    var ind = this.dgvBook.SelectedRows[0].Index;
-                    int bookID = Convert.ToInt16(this.dgvBook.Rows[ind].Cells[0].Value);
-
-                    inventory_book book = inventory.inventory_book.First(i => i.id == bookID);
-
-                    book.title = this.txtTitle.Text;
-                    book.title_kh = this.txtTitleKH.Text;
-                    book.reference = this.txtReference.Text;
-                    book.public_price = Convert.ToDecimal(this.txtPublicPrice.Text);
-                    book.book_stock_alert = Convert.ToInt16(this.txtStockAlert.Text);
-                    book.collection_id = Convert.ToInt16(this.cboCollection.SelectedValue);
-                    book.original_publisher_id = Convert.ToInt16(this.cboPublisher.SelectedValue);
-
-                    try
-                    {
-                        inventory.SaveChanges();
-                        is_updated = true;
-                    }
-                    catch (EntitySqlException ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
-                    if (is_updated)
-                    {
-                        this.dgvBook.DataSource = null;
-                        this.dgvBook.DataSource = inventory.inventory_book.ToList();
-                        MessageBox.Show("1 Book is updated!", "Book Update");
-                    }
+                    MessageBox.Show("Reference is duplicated!", "Book Add");
+                    return;
                 }
             }
+
+            book.title = this.txtTitle.Text;
+            book.title_kh = this.txtTitleKH.Text;
+            book.reference = this.txtReference.Text;
+            book.public_price = Convert.ToDecimal(this.txtPublicPrice.Text);
+            book.book_stock_alert = Convert.ToInt16(this.txtStockAlert.Text);
+            book.collection_id = Convert.ToInt16(this.cboCollection.SelectedValue);
+            book.original_publisher_id = Convert.ToInt16(this.cboPublisher.SelectedValue);
+
+            try
+            {
+                inventory.SaveChanges();
+                is_updated = true;
+            }
+            catch (EntitySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (is_updated)
+            {
+                this.dgvBook.DataSource = null;
+                this.dgvBook.DataSource = inventory.inventory_book.ToList();
+                MessageBox.Show("1 Book is updated!", "Book Update");
+            }
         }
+            
+        
     }
 }
