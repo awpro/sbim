@@ -354,69 +354,79 @@ namespace sbim
         {
             Boolean is_added = false;
             int bookID;
-            inventory_book book = new inventory_book();
+
             Boolean ok = checkBook();
-            if (ok)
+            if (!ok)
             {
-                book.title = this.txtTitle.Text;
-                book.title_kh = this.txtTitleKH.Text;
-                book.reference = this.txtReference.Text;
-                book.public_price = Convert.ToDecimal(this.txtPublicPrice.Text);
-                book.book_stock_alert = Convert.ToInt16(this.txtStockAlert.Text);
-                book.collection_id = Convert.ToInt16(this.cboCollection.SelectedValue);
-                book.original_publisher_id = Convert.ToInt16(this.cboPublisher.SelectedValue);
+                return;
+            }
 
-                try
+            var check_ref = inventory.inventory_book.Where(r => r.reference == this.txtReference.Text).SingleOrDefault();
+            if (check_ref != null)
+            {
+                MessageBox.Show("Reference is duplicated!", "Book Add");
+                return;
+            }
+
+            inventory_book book = new inventory_book();
+            book.title = this.txtTitle.Text;
+            book.title_kh = this.txtTitleKH.Text;
+            book.reference = this.txtReference.Text;
+            book.public_price = Convert.ToDecimal(this.txtPublicPrice.Text);
+            book.book_stock_alert = Convert.ToInt16(this.txtStockAlert.Text);
+            book.collection_id = Convert.ToInt16(this.cboCollection.SelectedValue);
+            book.original_publisher_id = Convert.ToInt16(this.cboPublisher.SelectedValue);
+
+            try
+            {
+                inventory.inventory_book.AddObject(book);
+                inventory.SaveChanges();
+                bookID = book.id;
+                book = null;
+
+                if (bookID > 0)
                 {
-                    inventory.inventory_book.AddObject(book);
-                    inventory.SaveChanges();
-                    bookID = book.id;
-                    book = null;
-
-                    if (bookID > 0)
+                    foreach (inventory_individual illustrator in this.lstIllustrator.SelectedItems)
                     {
-                        foreach (inventory_individual illustrator in this.lstIllustrator.SelectedItems)
-                        {
-                            inventory_book_illustrators illustrators = new inventory_book_illustrators();
-                            illustrators.book_id = bookID;
-                            illustrators.individual_id = illustrator.id;
-                            inventory.inventory_book_illustrators.AddObject(illustrators);
-                            inventory.SaveChanges();
-                        }
-
-                        foreach (inventory_individual author in this.lstAuthor.SelectedItems)
-                        {
-                            inventory_book_authors authors = new inventory_book_authors();
-                            authors.book_id = bookID;
-                            authors.individual_id = author.id;
-                            inventory.inventory_book_authors.AddObject(authors);
-                            inventory.SaveChanges();
-                        }
-
-                        foreach (inventory_individual photographer in this.lstPhotographer.SelectedItems)
-                        {
-                            inventory_book_photographers photographers = new inventory_book_photographers();
-                            photographers.book_id = bookID;
-                            photographers.individual_id = photographer.id;
-                            inventory.inventory_book_photographers.AddObject(photographers);
-                            inventory.SaveChanges();
-                        }
-                        is_added = true;
-
+                        inventory_book_illustrators illustrators = new inventory_book_illustrators();
+                        illustrators.book_id = bookID;
+                        illustrators.individual_id = illustrator.id;
+                        inventory.inventory_book_illustrators.AddObject(illustrators);
+                        inventory.SaveChanges();
                     }
-                }
-                catch (EntitySqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
 
-                if (is_added)
-                {
-                    this.dgvBook.DataSource = null;
-                    this.dgvBook.DataSource = inventory.inventory_book.ToList();
-                    newBook();
-                    MessageBox.Show("1 Book is added!", "Book Add");
+                    foreach (inventory_individual author in this.lstAuthor.SelectedItems)
+                    {
+                        inventory_book_authors authors = new inventory_book_authors();
+                        authors.book_id = bookID;
+                        authors.individual_id = author.id;
+                        inventory.inventory_book_authors.AddObject(authors);
+                        inventory.SaveChanges();
+                    }
+
+                    foreach (inventory_individual photographer in this.lstPhotographer.SelectedItems)
+                    {
+                        inventory_book_photographers photographers = new inventory_book_photographers();
+                        photographers.book_id = bookID;
+                        photographers.individual_id = photographer.id;
+                        inventory.inventory_book_photographers.AddObject(photographers);
+                        inventory.SaveChanges();
+                    }
+                    is_added = true;
+
                 }
+            }
+            catch (EntitySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (is_added)
+            {
+                this.dgvBook.DataSource = null;
+                this.dgvBook.DataSource = inventory.inventory_book.ToList();
+                MessageBox.Show("1 Book is added!", "Book Add");
+                newBook();
             }
         }
 

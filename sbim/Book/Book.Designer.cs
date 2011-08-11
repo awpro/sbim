@@ -334,6 +334,7 @@
             this.dgvBook.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBook.Location = new System.Drawing.Point(33, 367);
             this.dgvBook.Name = "dgvBook";
+            this.dgvBook.ReadOnly = true;
             this.dgvBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBook.Size = new System.Drawing.Size(746, 280);
             this.dgvBook.TabIndex = 25;
@@ -344,6 +345,7 @@
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Book ID";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.idDataGridViewTextBoxColumn.Width = 75;
             // 
@@ -352,6 +354,7 @@
             this.referenceDataGridViewTextBoxColumn.DataPropertyName = "reference";
             this.referenceDataGridViewTextBoxColumn.HeaderText = "Reference";
             this.referenceDataGridViewTextBoxColumn.Name = "referenceDataGridViewTextBoxColumn";
+            this.referenceDataGridViewTextBoxColumn.ReadOnly = true;
             this.referenceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.referenceDataGridViewTextBoxColumn.Width = 75;
             // 
@@ -360,6 +363,7 @@
             this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
             this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
             this.titleDataGridViewTextBoxColumn.Width = 160;
             // 
             // titlekhDataGridViewTextBoxColumn
@@ -367,6 +371,7 @@
             this.titlekhDataGridViewTextBoxColumn.DataPropertyName = "title_kh";
             this.titlekhDataGridViewTextBoxColumn.HeaderText = "Khmer Title ";
             this.titlekhDataGridViewTextBoxColumn.Name = "titlekhDataGridViewTextBoxColumn";
+            this.titlekhDataGridViewTextBoxColumn.ReadOnly = true;
             this.titlekhDataGridViewTextBoxColumn.Width = 200;
             // 
             // publicpriceDataGridViewTextBoxColumn
@@ -374,12 +379,14 @@
             this.publicpriceDataGridViewTextBoxColumn.DataPropertyName = "public_price";
             this.publicpriceDataGridViewTextBoxColumn.HeaderText = "Public Price";
             this.publicpriceDataGridViewTextBoxColumn.Name = "publicpriceDataGridViewTextBoxColumn";
+            this.publicpriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bookstockalertDataGridViewTextBoxColumn
             // 
             this.bookstockalertDataGridViewTextBoxColumn.DataPropertyName = "book_stock_alert";
             this.bookstockalertDataGridViewTextBoxColumn.HeaderText = "Stock Alert";
             this.bookstockalertDataGridViewTextBoxColumn.Name = "bookstockalertDataGridViewTextBoxColumn";
+            this.bookstockalertDataGridViewTextBoxColumn.ReadOnly = true;
             this.bookstockalertDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.bookstockalertDataGridViewTextBoxColumn.Width = 90;
             // 
@@ -388,6 +395,7 @@
             this.inventory_collection.DataPropertyName = "collection_id";
             this.inventory_collection.HeaderText = "Collection";
             this.inventory_collection.Name = "inventory_collection";
+            this.inventory_collection.ReadOnly = true;
             this.inventory_collection.Visible = false;
             // 
             // original_publisher_id
@@ -395,6 +403,7 @@
             this.original_publisher_id.DataPropertyName = "original_publisher_id";
             this.original_publisher_id.HeaderText = "Original Publisher";
             this.original_publisher_id.Name = "original_publisher_id";
+            this.original_publisher_id.ReadOnly = true;
             this.original_publisher_id.Visible = false;
             // 
             // bookBindingSource
@@ -436,7 +445,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Book";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Book Information";
             this.Load += new System.EventHandler(this.Book_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
